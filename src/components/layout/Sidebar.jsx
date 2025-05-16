@@ -69,7 +69,7 @@ const StyledNavLink = styled(NavLink)(({ theme }) => ({
 // Sidebar menus per role
 const roleMenus = {
     teacher: [
-        { text: 'Dashboard', icon: <Dashboard />, path: '/' },
+        { text: 'Dashboard', icon: <Dashboard />, path: '/teacher' },
         { text: 'Student attendance', icon: <AccessTime />, path: '/student-attendance' },
         { text: 'Attendance status', icon: <CheckCircle />, path: '/attendance-status' },
         { text: 'Homework', icon: <MenuBook />, path: '/homework' },

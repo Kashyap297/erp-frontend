@@ -1,4 +1,3 @@
-// AppLayout.jsx
 import React, { useState } from 'react';
 import { Box, useMediaQuery, useTheme } from '@mui/material';
 import Sidebar from './Sidebar';
@@ -32,6 +31,7 @@ const AppLayout = ({ children }) => {
                     isMobile={isMobile}
                 />
                 <Box sx={{ p: { xs: 1, sm: 2, md: 3 } }}>
+                    <Box sx={{ ...theme.mixins.toolbar }} />
                     {children}
                 </Box>
             </Box>

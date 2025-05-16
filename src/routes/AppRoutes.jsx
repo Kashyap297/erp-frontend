@@ -17,7 +17,7 @@ const AppRoutes = () => {
             <Route path="/coordinator" element={<CoordinatorRoutes />} />
             <Route path="/finance" element={<FinanceRouts />} />
             <Route path="/principal" element={<PrincipalRouts />} />
-            <Route path="/teacher" element={<TeacherRoutes />} />
+            <Route path="/teacher/*" element={<TeacherRoutes />} />
         </Routes>
     );
 };

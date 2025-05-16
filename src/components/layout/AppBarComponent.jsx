@@ -7,7 +7,7 @@ import { useLocation } from 'react-router-dom';
 const createTitleMap = () => {
     const roleMenus = {
         teacher: [
-            { path: '/', text: 'Dashboard' },
+            { path: '/dashboard', text: 'Dashboard' },
             { path: '/student-attendance', text: 'Student Attendance' },
             { path: '/attendance-status', text: 'Attendance Status' },
             { path: '/homework', text: 'Homework' },
