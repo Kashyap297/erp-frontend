@@ -35,8 +35,8 @@ const PendingAssignments = () => {
                 elevation={0}
                 sx={{
                     p: 3,
-                    borderRadius: 2,
-                    backgroundColor: "#1976d2",
+                    borderRadius: 4,
+                    backgroundColor: "#1399FF",
                     color: "white",
                 }}
             >
