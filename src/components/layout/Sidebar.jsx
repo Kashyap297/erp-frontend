@@ -10,6 +10,7 @@ import {
     Typography,
     Divider,
     styled,
+    IconButton,
 } from '@mui/material';
 import {
     Dashboard,
@@ -48,10 +49,13 @@ import {
     AppRegistration,
     PersonAddAlt,
     UploadFile,
-    Event, // Added missing Event icon import
+    Event,
+    ChevronLeft, // Added missing Event icon import
 } from '@mui/icons-material';
 import { NavLink } from 'react-router-dom';
 import { getCurrentUserRole } from '../../utils/roles';
+
+const drawerWidth = 240;
 
 // Styled NavLink
 const StyledNavLink = styled(NavLink)(({ theme }) => ({
@@ -64,12 +68,12 @@ const StyledNavLink = styled(NavLink)(({ theme }) => ({
 
 // Sidebar menus per role
 const roleMenus = {
-    teacher: [ 
+    teacher: [
         { text: 'Dashboard', icon: <Dashboard />, path: '/' },
         { text: 'Student attendance', icon: <AccessTime />, path: '/student-attendance' },
         { text: 'Attendance status', icon: <CheckCircle />, path: '/attendance-status' },
         { text: 'Homework', icon: <MenuBook />, path: '/homework' },
-        { text: 'Time table', icon: <Schedule />, path: '/timetable' }, 
+        { text: 'Time table', icon: <Schedule />, path: '/timetable' },
         { text: 'Result', icon: <Image />, path: '/result' },
         { text: 'Notice', icon: <Announcement />, path: '/notice' },
         { text: 'Salary', icon: <Payments />, path: '/salary' },
@@ -125,67 +129,73 @@ const roleMenus = {
     ],
 };
 
-const Sidebar = () => {
-    const role = getCurrentUserRole(); // e.g., "teacher"
+const Sidebar = ({ mobileOpen, handleDrawerToggle, isMobile }) => {
+    const role = getCurrentUserRole();
     const menuItems = roleMenus[role] || [];
 
     return (
-        <Drawer
-            variant="permanent"
-            sx={{
-                width: 240,
-                flexShrink: 0,
-                '& .MuiDrawer-paper': {
-                    width: 240,
-                    boxSizing: 'border-box',
-                    backgroundColor: '#0277bd',
-                    color: 'white',
-                    borderRight: '1px solid rgba(255,255,255,0.2)',
-                },
-            }}
-        >
-            {/* Top Profile Section */}
-            <Box sx={{ p: 2, display: 'flex', alignItems: 'center', gap: 2 }}>
-                <Avatar
-                    src="/path-to-profile-image.jpg" // Replace with actual image path
-                    sx={{ width: 48, height: 48 }}
-                />
-                <Typography variant="subtitle1" fontWeight={500}>
-                    Ranjeet Singh
-                </Typography>
-            </Box>
-
-            <Divider sx={{ borderColor: 'rgba(255,255,255,0.2)', mx: 2, mb: 1 }} />
-
-            {/* Dynamic Menu List */}
-            <List>
-                {menuItems.map((item, index) => (
-                    <StyledNavLink
-                        to={item.path}
-                        key={index}
-                        className={({ isActive }) => isActive ? 'active' : ''}
-                    >
+        <>
+            <Drawer
+                variant={isMobile ? "temporary" : "permanent"}
+                open={mobileOpen}
+                onClose={handleDrawerToggle}
+                ModalProps={{
+                    keepMounted: true, // Better open performance on mobile
+                }}
+                sx={{
+                    width: drawerWidth,
+                    flexShrink: 0,
+                    '& .MuiDrawer-paper': {
+                        width: drawerWidth,
+                        boxSizing: 'border-box',
+                        backgroundColor: '#0072C9',
+                        color: 'white',
+                    },
+                }}
+            >
+                {isMobile && (
+                    <Box sx={{ display: 'flex', justifyContent: 'flex-end', p: 1 }}>
+                        <IconButton onClick={handleDrawerToggle} sx={{ color: 'white' }}>
+                            <ChevronLeft />
+                        </IconButton>
+                    </Box>
+                )}
+                <Box sx={{ p: 2, display: 'flex', alignItems: 'center', gap: 2 }}>
+                    <Avatar
+                        src="/path-to-profile-image.jpg"
+                        sx={{ width: 48, height: 48 }}
+                    />
+                    <Typography variant="subtitle1" fontWeight={500}>
+                        Ranjeet Singh
+                    </Typography>
+                </Box>
+                <Divider sx={{ borderColor: 'rgba(255,255,255,0.2)', mx: 2, mb: 1 }} />
+                <List>
+                    {menuItems.map((item, index) => (
+                        <StyledNavLink
+                            to={item.path}
+                            key={index}
+                            className={({ isActive }) => isActive ? 'active' : ''}
+                            onClick={isMobile ? handleDrawerToggle : undefined}
+                        >
+                            <ListItem>
+                                <ListItemIcon sx={{ color: 'white' }}>{item.icon}</ListItemIcon>
+                                <ListItemText primary={item.text} />
+                            </ListItem>
+                        </StyledNavLink>
+                    ))}
+                </List>
+                <Box sx={{ flexGrow: 1 }} />
+                <List sx={{ mt: 'auto' }}>
+                    <StyledNavLink to="/logout" onClick={isMobile ? handleDrawerToggle : undefined}>
                         <ListItem>
-                            <ListItemIcon sx={{ color: 'white' }}>{item.icon}</ListItemIcon>
-                            <ListItemText primary={item.text} />
+                            <ListItemIcon sx={{ color: 'white' }}><Logout /></ListItemIcon>
+                            <ListItemText primary="Logout" />
                         </ListItem>
                     </StyledNavLink>
-                ))}
-            </List>
-
-            {/* Spacer to push logout at bottom */}
-            <Box sx={{ flexGrow: 1 }} />
-
-            {/* Logout Button */}
-            <List sx={{ mt: 'auto' }}>
-                <StyledNavLink to="/logout">
-                    <ListItem>
-                        <ListItemIcon sx={{ color: 'white' }}><Logout /></ListItemIcon>
-                        <ListItemText primary="Logout" />
-                    </ListItem>
-                </StyledNavLink>
-            </List>
-        </Drawer>
+                </List>
+            </Drawer>
+        </>
     );
 };
 

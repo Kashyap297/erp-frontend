@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppBar, Toolbar, Typography, IconButton, Badge } from '@mui/material';
+import { AppBar, Toolbar, Typography, IconButton, Badge, Box, Menu } from '@mui/material';
 import { NotificationsNone } from '@mui/icons-material';
 import { useLocation } from 'react-router-dom';
 
@@ -77,16 +77,36 @@ const createTitleMap = () => {
     return titleMap;
 };
 
-const AppBarComponent = () => {
+const AppBarComponent = ({ handleDrawerToggle, isMobile }) => {
     const location = useLocation();
     const titleMap = createTitleMap();
 
     return (
-        <AppBar position="static" color="default" elevation={0}>
+        <AppBar
+            position="fixed"
+            color="default"
+            elevation={0}
+            sx={{
+                width: { md: `calc(100% - ${240}px)` },
+                ml: { md: `${240}px` },
+            }}
+        >
             <Toolbar sx={{ justifyContent: 'space-between' }}>
-                <Typography variant="h6">
-                    {titleMap[location.pathname] || 'Dashboard'}
-                </Typography>
+                <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                    {isMobile && (
+                        <IconButton
+                            aria-label="open drawer"
+                            edge="start"
+                            onClick={handleDrawerToggle}
+                            sx={{ mr: 2 }}
+                        >
+                            <Menu sx={{ color: 'black' }} />
+                        </IconButton>
+                    )}
+                    <Typography variant="h6" noWrap>
+                        {titleMap[location.pathname] || 'Dashboard'}
+                    </Typography>
+                </Box>
                 <IconButton>
                     <Badge badgeContent={3} color="error">
                         <NotificationsNone />
