@@ -17,7 +17,7 @@ import {
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import ProfileCard from '../../components/Teacher/ProfileCard';
+import ProfileCard from '../../components/common/ProfileCard';
 import TodaysAttendance from '../../components/Teacher/TodaysAttendance';
 import UpcomingEvents from '../../components/Teacher/UpcomingEvents';
 import PendingAssignments from '../../components/Teacher/PendingAssignments';
@@ -117,7 +117,7 @@ const TeacherDashboard = () => {
             <TimeTable />
 
             {/* Events & Assignments */}
-            <Grid container spacing={6} mt={2}>
+            <Grid container spacing={3} sx={{ mt: 3 }}>
                 <Grid item xs={12} md={6}>
                     <UpcomingEvents />
                 </Grid>
