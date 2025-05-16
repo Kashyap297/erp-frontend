@@ -70,10 +70,10 @@ const StyledNavLink = styled(NavLink)(({ theme }) => ({
 const roleMenus = {
     teacher: [
         { text: 'Dashboard', icon: <Dashboard />, path: '/teacher' },
-        { text: 'Student attendance', icon: <AccessTime />, path: '/student-attendance' },
+        { text: 'Student attendance', icon: <AccessTime />, path: '/teacher/student-attendance' },
         { text: 'Attendance status', icon: <CheckCircle />, path: '/attendance-status' },
         { text: 'Homework', icon: <MenuBook />, path: '/homework' },
-        { text: 'Time table', icon: <Schedule />, path: '/timetable' },
+        { text: 'Time table', icon: <Schedule />, path: '/teacher/timetable' },
         { text: 'Result', icon: <Image />, path: '/result' },
         { text: 'Notice', icon: <Announcement />, path: '/notice' },
         { text: 'Salary', icon: <Payments />, path: '/salary' },
