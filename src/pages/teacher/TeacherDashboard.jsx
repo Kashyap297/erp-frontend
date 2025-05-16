@@ -20,9 +20,8 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import ProfileCard from '../../components/Teacher/ProfileCard';
 import TodaysAttendance from '../../components/Teacher/TodaysAttendance';
 import UpcomingEvents from '../../components/Teacher/UpcomingEvents';
-// import TimeTable from '../common/TimeTable';
-// import UpcomingEvents from '../components/UpcomingEvents';
-// import PendingAssignments from '../components/PendingAssignments';
+import PendingAssignments from '../../components/Teacher/PendingAssignments';
+import TimeTable from '../../components/common/TimeTable';
 
 // Custom styled components
 const StatsCard = styled(Box)(({ theme }) => ({
@@ -115,7 +114,7 @@ const TeacherDashboard = () => {
 
             {/* Attendance Section */}
             <TodaysAttendance />
-            {/* <TimeTable /> */}
+            <TimeTable />
 
             {/* Events & Assignments */}
             <Grid container spacing={6} mt={2}>
@@ -123,7 +122,7 @@ const TeacherDashboard = () => {
                     <UpcomingEvents />
                 </Grid>
                 <Grid item xs={12} md={6}>
-                    {/* <PendingAssignments /> */}
+                    <PendingAssignments />
                 </Grid>
             </Grid>
         </Box>
