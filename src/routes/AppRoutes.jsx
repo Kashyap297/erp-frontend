@@ -1,22 +1,23 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-// import TeacherDashboard from '../pages/dashboard/TeacherDashboard';
-// import PrincipalDashboard from '../pages/dashboard/PrincipalDashboard';
-// import FinanceDashboard from '../pages/dashboard/FinanceDashboard';
-// import CoordinatorDashboard from '../pages/dashboard/CoordinatorDashboard';
-// import AdmissionDashboard from '../pages/dashboard/AdmissionDashboard';
+import AdmissionRoutes from './AdmissionRoutes';
+import CoordinatorRoutes from './CoordinatorRoutes';
+import FinanceRouts from './FinanceRouts';
+import PrincipalRouts from './PrincipalRouts';
+import TeacherRoutes from './TeacherRoutes';
+
 
 const AppRoutes = () => {
     return (
         <Routes>
-            {/* <Route path="/" element={<TeacherDashboard />} /> */}
             <Route path="/attendance" element={<div>Attendance Page</div>} />
             <Route path="/timetable" element={<div>Timetable Page</div>} />
-            {/* <Route path="/staff" element={<PrincipalDashboard />} /> */}
             <Route path="/notices" element={<div>Notice Page</div>} />
-            {/* <Route path="/salary" element={<FinanceDashboard />} /> */}
-            {/* <Route path="/events" element={<CoordinatorDashboard />} /> */}
-            {/* <Route path="/new-students" element={<AdmissionDashboard />} /> */}
+            <Route path="/admission" element={<AdmissionRoutes />} />
+            <Route path="/coordinator" element={<CoordinatorRoutes />} />
+            <Route path="/finance" element={<FinanceRouts />} />
+            <Route path="/principal" element={<PrincipalRouts />} />
+            <Route path="/teacher" element={<TeacherRoutes />} />
         </Routes>
     );
 };
