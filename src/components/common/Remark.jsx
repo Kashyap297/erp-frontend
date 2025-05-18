@@ -58,9 +58,7 @@ const RemarkForm = () => {
 
     return (
         <Container maxWidth="" sx={{ mt: 4 }}>
-            <Divider sx={{ mb: 4 }} />
-
-            <Box component="form" onSubmit={handleSubmit} sx={{ mt: 2, px: 2 }}>
+            <Box component="form" onSubmit={handleSubmit} sx={{ mt: 2 }}>
                 <Box sx={{ display: "flex", flexDirection: { xs: "column", sm: "row" }, gap: 3, mb: 3 }}>
                     <Box sx={{ flex: 1 }}>
                         <Typography variant="body1" sx={{ mb: 1 }}>
