@@ -52,7 +52,7 @@ import {
     Event,
     ChevronLeft, // Added missing Event icon import
 } from '@mui/icons-material';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { getCurrentUserRole } from '../../utils/roles';
 
 const drawerWidth = 240;
@@ -132,6 +132,7 @@ const roleMenus = {
 const Sidebar = ({ mobileOpen, handleDrawerToggle, isMobile }) => {
     const role = getCurrentUserRole();
     const menuItems = roleMenus[role] || [];
+    const navigate = useNavigate();
 
     return (
         <>
@@ -160,7 +161,10 @@ const Sidebar = ({ mobileOpen, handleDrawerToggle, isMobile }) => {
                         </IconButton>
                     </Box>
                 )}
-                <Box sx={{ p: 2, display: 'flex', alignItems: 'center', gap: 2 }}>
+                <Box
+                    sx={{ p: 2, display: 'flex', alignItems: 'center', gap: 2, cursor: 'pointer' }}
+                    onClick={() => navigate('/profile')}
+                >
                     <Avatar
                         src="/path-to-profile-image.jpg"
                         sx={{ width: 48, height: 48 }}

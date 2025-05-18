@@ -14,6 +14,7 @@ import HomeworkCreationForm from '../components/Teacher/HomeworkCreationForm';
 import LeaveHistory from '../components/Teacher/LeaveHistory';
 import LeaveApplicationDetails from '../components/Teacher/LeaveDescription';
 import ChatInterface from '../components/common/ChatInterface';
+import ProfileCard from '../components/common/ProfileCard';
 const TeacherRoutes = () => {
   return (
     <Routes>
@@ -32,6 +33,7 @@ const TeacherRoutes = () => {
       <Route path="/homework" element={<Homework />} />
       <Route path="/homework/create" element={<HomeworkCreationForm />} />
       <Route path="/support" element={<ChatInterface />} />
+      <Route path="/profile" element={<ProfileCard />} />
     </Routes>
   )
 }
