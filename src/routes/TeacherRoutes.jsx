@@ -13,6 +13,7 @@ import Homework from '../components/Teacher/Homework';
 import HomeworkCreationForm from '../components/Teacher/HomeworkCreationForm';
 import LeaveHistory from '../components/Teacher/LeaveHistory';
 import LeaveApplicationDetails from '../components/Teacher/LeaveDescription';
+import ChatInterface from '../components/common/ChatInterface';
 const TeacherRoutes = () => {
   return (
     <Routes>
@@ -30,8 +31,7 @@ const TeacherRoutes = () => {
       <Route path="/attendance-status" element={<AttendanceStatus />} />
       <Route path="/homework" element={<Homework />} />
       <Route path="/homework/create" element={<HomeworkCreationForm />} />
-      {/* <Route path="/timetable" element={<Timetable />} />
-      <Route path="/support" element={<Support />} /> */}
+      <Route path="/support" element={<ChatInterface />} />
     </Routes>
   )
 }

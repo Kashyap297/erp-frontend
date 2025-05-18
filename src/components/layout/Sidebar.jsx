@@ -79,7 +79,7 @@ const roleMenus = {
         { text: 'Salary', icon: <Payments />, path: 'teacher/salary' },
         { text: 'Leave', icon: <Assignment />, path: 'teacher/leave' },
         { text: 'Remark', icon: <Note />, path: 'teacher/remark' },
-        { text: 'Support', icon: <Headphones />, path: '/support' },
+        { text: 'Support', icon: <Headphones />, path: 'teacher/support' },
     ],
     principal: [
         { text: 'Dashboard', icon: <Home />, path: '/' },
