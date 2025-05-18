@@ -118,14 +118,14 @@ const roleMenus = {
         { text: 'Support', icon: <HeadsetMic />, path: 'coordinator/support' },
     ],
     admission: [
-        { text: 'Dashboard', icon: <Home />, path: '/' },
-        { text: 'Student registration', icon: <AppRegistration />, path: '/student-registration' },
-        { text: 'Teacher Registration', icon: <PersonAddAlt />, path: '/teacher-registration' },
-        { text: 'TC upload', icon: <UploadFile />, path: '/tc-upload' },
-        { text: 'Edit Record', icon: <EditNote />, path: '/edit-record' },
-        { text: 'Student data', icon: <Group />, path: '/student-data' },
-        { text: 'Salary', icon: <Payments />, path: '/salary' },
-        { text: 'Support', icon: <HeadsetMic />, path: '/support' },
+        { text: 'Dashboard', icon: <Home />, path: '/admission' },
+        { text: 'Student registration', icon: <AppRegistration />, path: 'admission/student-registration' },
+        { text: 'Teacher Registration', icon: <PersonAddAlt />, path: 'admission/teacher-registration' },
+        { text: 'TC upload', icon: <UploadFile />, path: 'admission/tc-upload' },
+        { text: 'Edit Record', icon: <EditNote />, path: 'admission/edit-record' },
+        { text: 'Student data', icon: <Group />, path: 'admission/student-data' },
+        { text: 'Salary', icon: <Payments />, path: 'admission/salary' },
+        { text: 'Support', icon: <HeadsetMic />, path: 'admission/support' },
     ],
 };
 
