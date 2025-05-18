@@ -57,16 +57,7 @@ const RemarkForm = () => {
     }
 
     return (
-        <Container maxWidth="lg" sx={{ mt: 4 }}>
-            <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: 2 }}>
-                <Typography variant="h5" component="h1" fontWeight="regular">
-                    Remark
-                </Typography>
-                <IconButton aria-label="notifications">
-                    <NotificationsIcon />
-                </IconButton>
-            </Box>
-
+        <Container maxWidth="" sx={{ mt: 4 }}>
             <Divider sx={{ mb: 4 }} />
 
             <Box component="form" onSubmit={handleSubmit} sx={{ mt: 2, px: 2 }}>

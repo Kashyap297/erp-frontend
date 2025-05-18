@@ -16,6 +16,7 @@ import {
 import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined"
 import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined"
 import TextSnippetOutlinedIcon from "@mui/icons-material/TextSnippetOutlined"
+import { useNavigate } from "react-router-dom"
 
 export default function LeaveApplication() {
   const [leaveType, setLeaveType] = useState("")
@@ -24,32 +25,15 @@ export default function LeaveApplication() {
   const [toDate, setToDate] = useState("")
   const [reason, setReason] = useState("")
   const [file, setFile] = useState(null)
+  const navigate = useNavigate() // Initialize navigate
 
   const handleFileChange = (event) => {
     setFile(event.target.files[0])
   }
 
   return (
-    <Container maxWidth="lg" sx={{ py: 2, px: { xs: 1, sm: 2 } }}>
+    <Container maxWidth="" sx={{ py: 2, px: { xs: 1, sm: 2 } }}>
       <Paper elevation={0} sx={{ width: "100%", p: 0 }}>
-        <Box
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            borderBottom: "1px solid #f0f0f0",
-            px: 3,
-            py: 2,
-          }}
-        >
-          <Typography variant="h6" sx={{ fontWeight: 600, fontSize: "1.1rem" }}>
-            Leave
-          </Typography>
-          <IconButton size="small">
-            <NotificationsOutlinedIcon fontSize="small" />
-          </IconButton>
-        </Box>
-
         <Box sx={{ p: 3 }}>
           {/* Leave Balance Section */}
           <Box
@@ -151,6 +135,7 @@ export default function LeaveApplication() {
                 fontSize: "0.95rem",
                 color: "#2196f3",
               }}
+              onClick={() => navigate('/teacher/leave/history')} // Add this onClick handler
             >
               History
             </Button>

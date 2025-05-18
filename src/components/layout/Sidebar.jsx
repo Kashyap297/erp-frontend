@@ -72,7 +72,7 @@ const roleMenus = {
         { text: 'Dashboard', icon: <Dashboard />, path: '/teacher' },
         { text: 'Student attendance', icon: <AccessTime />, path: '/teacher/student-attendance' },
         { text: 'Attendance status', icon: <CheckCircle />, path: 'teacher/attendance-status' },
-        { text: 'Homework', icon: <MenuBook />, path: '/homework' },
+        { text: 'Homework', icon: <MenuBook />, path: 'teacher/homework' },
         { text: 'Time table', icon: <Schedule />, path: 'teacher/timetable' },
         { text: 'Result', icon: <Image />, path: 'teacher/result' },
         { text: 'Notice', icon: <Announcement />, path: 'teacher/notice' },
