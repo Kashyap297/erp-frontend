@@ -5,7 +5,6 @@ const TableContainer = styled(Box)(({ theme }) => ({
  
   borderRadius: "4px",
   marginTop: theme.spacing(2),
-  padding: theme.spacing(4),
 }))
 
 const TableRow = styled(Box)({

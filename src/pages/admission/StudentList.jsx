@@ -58,7 +58,7 @@ export default function StudentList() {
   ]
 
   return (
-    <Box sx={{ mt: 2 , p : 4}}>
+    <Box sx={{ mt: 2 ,}}>
       {students.map((student) => (
         <StudentCard key={student.id}>
           <Checkbox
