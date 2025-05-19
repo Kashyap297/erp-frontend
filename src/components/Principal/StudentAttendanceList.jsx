@@ -81,6 +81,7 @@ const StudentAttendanceList = () => {
                         "& .MuiOutlinedInput-root": {
                             borderRadius: 1,
                             height: "40px",
+                            bgcolor: "#D9D9D9C2",
                         },
                     }}
                     InputProps={{
@@ -103,7 +104,7 @@ const StudentAttendanceList = () => {
                         width: 150,
                         height: 40,
                         borderRadius: 1,
-                        bgcolor: "#f5f5f5",
+                       bgcolor: "#D9D9D9C2",
                         "& .MuiOutlinedInput-notchedOutline": {
                             borderColor: "#e0e0e0",
                         },
@@ -126,7 +127,7 @@ const StudentAttendanceList = () => {
                         width: 150,
                         height: 40,
                         borderRadius: 1,
-                        bgcolor: "#f5f5f5",
+                       bgcolor: "#D9D9D9C2",
                         "& .MuiOutlinedInput-notchedOutline": {
                             borderColor: "#e0e0e0",
                         },
@@ -147,7 +148,7 @@ const StudentAttendanceList = () => {
                         borderRadius: 1,
                         borderColor: "#e0e0e0",
                         color: "text.primary",
-                        bgcolor: "#f5f5f5",
+                        bgcolor: "#D9D9D9C2",
                         "&:hover": {
                             bgcolor: "#e0e0e0",
                             borderColor: "#bdbdbd",

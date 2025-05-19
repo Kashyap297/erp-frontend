@@ -123,6 +123,7 @@ const StudentList = () => {
                         px: 2,
                         py: 0.5,
                         border: "1px solid #e0e0e0",
+                        bgcolor: "#D9D9D9C2",
                         borderRadius: 1,
                         "&:hover": {
                             borderColor: "#bdbdbd",
@@ -149,6 +150,7 @@ const StudentList = () => {
                             "& .MuiInputBase-input": {
                                 py: 1.5,
                             },
+                           
                         }}
                     />
                 </Paper>
@@ -158,7 +160,7 @@ const StudentList = () => {
                     startIcon={<TuneIcon />}
                     sx={{
                         borderRadius: 1,
-                        bgcolor: "#f5f5f5",
+                        bgcolor: "#D9D9D9C2",
                         color: "text.primary",
                         boxShadow: "none",
                         border: "1px solid #e0e0e0",
@@ -189,7 +191,7 @@ const StudentList = () => {
                             displayEmpty
                             renderValue={(selected) => (selected ? selected : "Select grades")}
                             sx={{
-                                bgcolor: "#f5f5f5",
+                                bgcolor: "#D9D9D9C2",
                                 borderRadius: 1,
                                 "& .MuiOutlinedInput-notchedOutline": {
                                     borderColor: "#e0e0e0",
@@ -228,7 +230,7 @@ const StudentList = () => {
                             displayEmpty
                             renderValue={(selected) => (selected ? selected : "Select GPA")}
                             sx={{
-                                bgcolor: "#f5f5f5",
+                                bgcolor: "#D9D9D9C2",
                                 borderRadius: 1,
                                 "& .MuiOutlinedInput-notchedOutline": {
                                     borderColor: "#e0e0e0",
@@ -268,7 +270,7 @@ const StudentList = () => {
                         sx={{
                             minWidth: 180,
                             "& .MuiOutlinedInput-root": {
-                                bgcolor: "#f5f5f5",
+                                bgcolor: "#D9D9D9C2",
                                 borderRadius: 1,
                                 "& fieldset": {
                                     borderColor: "#e0e0e0",
@@ -336,7 +338,7 @@ const StudentList = () => {
                                             borderRadius: 1,
                                             borderColor: "#e0e0e0",
                                             color: "text.secondary",
-                                            bgcolor: "#f5f5f5",
+                                            bgcolor: "#D9D9D9C2",
                                             textTransform: "none",
                                             "&:hover": {
                                                 bgcolor: "#e0e0e0",

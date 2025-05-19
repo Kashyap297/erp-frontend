@@ -164,7 +164,7 @@ const LeaveApproval = () => {
                         flex: { xs: "1 1 100%", sm: "1 1 auto" },
                         "& .MuiOutlinedInput-root": {
                             borderRadius: 2,
-                            bgcolor: "#f5f5f5",
+                            bgcolor: "#D9D9D9C2",
                             "& fieldset": {
                                 borderColor: "#e0e0e0",
                             },
@@ -188,7 +188,7 @@ const LeaveApproval = () => {
                     sx={{
                         width: { xs: "100%", sm: 200 },
                         borderRadius: 2,
-                        bgcolor: "#f5f5f5",
+                        bgcolor: "#D9D9D9C2",
                         "& .MuiOutlinedInput-notchedOutline": {
                             borderColor: "#e0e0e0",
                         },
@@ -209,7 +209,7 @@ const LeaveApproval = () => {
                     sx={{
                         width: { xs: "100%", sm: 150 },
                         borderRadius: 2,
-                        bgcolor: "#f5f5f5",
+                        bgcolor: "#D9D9D9C2",
                         "& .MuiOutlinedInput-notchedOutline": {
                             borderColor: "#e0e0e0",
                         },
@@ -229,7 +229,7 @@ const LeaveApproval = () => {
                         borderRadius: 2,
                         borderColor: "#e0e0e0",
                         color: "text.primary",
-                        bgcolor: "#f5f5f5",
+                        bgcolor: "#D9D9D9C2",
                         "&:hover": {
                             bgcolor: "#e0e0e0",
                             borderColor: "#bdbdbd",
@@ -271,7 +271,7 @@ const LeaveApproval = () => {
                                             borderRadius: 1,
                                             borderColor: "#e0e0e0",
                                             color: "text.secondary",
-                                            bgcolor: "#f5f5f5",
+                                            bgcolor: "#D9D9D9C2",
                                             textTransform: "none",
                                             "&:hover": {
                                                 bgcolor: "#e0e0e0",
