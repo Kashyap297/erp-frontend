@@ -1,61 +1,129 @@
-import { Box, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button } from "@mui/material"
+import { Box, Button, Typography } from "@mui/material"
 import { styled } from "@mui/material/styles"
 
-const StyledTableCell = styled(TableCell)({
-  padding: "8px 16px",
+const TableContainer = styled(Box)(({ theme }) => ({
+ 
+  borderRadius: "4px",
+  marginTop: theme.spacing(2),
+  padding: theme.spacing(4),
+}))
+
+const TableRow = styled(Box)({
+  display: "flex",
+  justifyContent: "space-between",
+  borderBottom: "1px solid #e0e0e0",
+  padding: "16px",
+})
+
+const HeaderRow = styled(TableRow)({
+  fontWeight: 600,
+  backgroundColor: "#fafafa",
+})
+
+const TableCell = styled(Box)({
+  flex: 1,
+  display: "flex",
+  alignItems: "center",
+})
+
+const AcceptButton = styled(Button)({
+  backgroundColor: " #23D000",
+  color: "white",
+  textTransform: "none",
+  padding: "6px 16px",
   fontSize: "14px",
+  marginRight: "8px",
+  "&:hover": {
+    backgroundColor: "#43a047",
+  },
 })
 
-const ActionButton = styled(Button)({
-  minWidth: "32px",
-  height: "24px",
-  padding: "0 8px",
-  fontSize: "12px",
-  marginRight: "4px",
+const RejectButton = styled(Button)({
+  backgroundColor: "#D80303",
+  color: "white",
+  textTransform: "none",
+  padding: "6px 16px",
+  fontSize: "14px",
+  "&:hover": {
+    backgroundColor: "#e53935",
+  },
 })
 
-export default function InterviewTable({ interviews }) {
+export default function InterviewTable() {
+  // Sample data based on the image
+  const interviews = [
+    {
+      id: 1,
+      name: "John Doe",
+      subject: "Math",
+      interviewDate: "Not assigned",
+    },
+    {
+      id: 2,
+      name: "John Doe",
+      subject: "Math",
+      interviewDate: "Not assigned",
+    },
+    {
+      id: 3,
+      name: "John Doe",
+      subject: "Math",
+      interviewDate: "Not assigned",
+    },
+    {
+      id: 4,
+      name: "John Doe",
+      subject: "Math",
+      interviewDate: "Not assigned",
+    },
+    {
+      id: 5,
+      name: "John Doe",
+      subject: "Math",
+      interviewDate: "Not assigned",
+    },
+  ]
+
   return (
-    <Box sx={{ p: 2, bgcolor: "white", mt : 2 }}>
-      <TableContainer component={Paper} elevation={0}>
-        <Table size="small">
-          <TableHead>
-            <TableRow>
-              <StyledTableCell>Name</StyledTableCell>
-              <StyledTableCell>Subject</StyledTableCell>
-              <StyledTableCell>Interview Date</StyledTableCell>
-              <StyledTableCell>Actions</StyledTableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {interviews.map((interview) => (
-              <TableRow key={interview.id}>
-                <StyledTableCell>{interview.name}</StyledTableCell>
-                <StyledTableCell>{interview.subject}</StyledTableCell>
-                <StyledTableCell>{interview.interviewDate}</StyledTableCell>
-                <StyledTableCell>
-                  <ActionButton
-                    variant="contained"
-                    color="success"
-                    size="large"
-                    sx={{ bgcolor: "#4caf50", "&:hover": { bgcolor: "#388e3c" } }}
-                  >
-                    Accept
-                  </ActionButton>
-                  <ActionButton
-                    variant="contained"
-                    color="error"
-                    size="small"
-                    sx={{ bgcolor: "#f44336", "&:hover": { bgcolor: "#d32f2f" } }}
-                  >
-                   Reject
-                  </ActionButton>
-                </StyledTableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
-    </Box>
+    <TableContainer>
+      <HeaderRow>
+        <TableCell>
+          <Typography variant="subtitle1">Name</Typography>
+        </TableCell>
+        <TableCell>
+          <Typography variant="subtitle1">Subject</Typography>
+        </TableCell>
+        <TableCell>
+          <Typography variant="subtitle1">Interview Date</Typography>
+        </TableCell>
+        <TableCell>
+          <Typography variant="subtitle1">Actions</Typography>
+        </TableCell>
+      </HeaderRow>
+
+      {interviews.map((interview) => (
+        <TableRow key={interview.id}>
+          <TableCell>
+            <Typography>{interview.name}</Typography>
+          </TableCell>
+          <TableCell>
+            <Typography>{interview.subject}</Typography>
+          </TableCell>
+          <TableCell>
+            <Typography>{interview.interviewDate}</Typography>
+          </TableCell>
+          <TableCell sx={{ display: "flex", justifyContent: "space-between" }}>
+            <Box sx={{ display: "flex", justifyContent: "flex-start" }}>
+              <AcceptButton variant="contained" size="small">
+                Accept
+              </AcceptButton>
+              <RejectButton variant="contained" size="small">
+                Reject
+              </RejectButton>
+            </Box>
+          </TableCell>
+        </TableRow>
+      ))}
+    </TableContainer>
   )
 }
