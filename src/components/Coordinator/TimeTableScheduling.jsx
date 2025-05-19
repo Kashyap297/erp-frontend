@@ -1,3 +1,5 @@
+"use client"
+
 import { useState } from "react"
 import {
     Box,
@@ -11,17 +13,32 @@ import {
     IconButton,
     FormControl,
     OutlinedInput,
+    useTheme,
+    useMediaQuery,
+    Tabs,
+    Tab,
+    Card,
+    CardContent,
+    Divider,
+    Button,
 } from "@mui/material"
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday"
 import EditIcon from "@mui/icons-material/Edit"
 import AddIcon from "@mui/icons-material/Add"
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown"
+import SubjectIcon from "@mui/icons-material/Subject"
+import ClassIcon from "@mui/icons-material/Class"
 
 const TimeTableScheduling = () => {
+    const theme = useTheme()
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
+    const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'))
+    
     const [selectedTeacher, setSelectedTeacher] = useState("")
     const [selectedClass, setSelectedClass] = useState("")
     const [selectedSection, setSelectedSection] = useState("")
     const [selectedDate, setSelectedDate] = useState("")
+    const [activeDay, setActiveDay] = useState(0)
 
     // Days of the week
     const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
@@ -66,14 +83,18 @@ const TimeTableScheduling = () => {
 
     const timetableData = generateTimetableData()
 
+    const handleDayChange = (event, newValue) => {
+        setActiveDay(newValue)
+    }
+
     // Render a timetable cell based on its type
-    const renderCell = (cellData) => {
+    const renderCell = (cellData, isMobileView = false) => {
         switch (cellData.type) {
             case "empty":
                 return (
                     <Box
                         sx={{
-                            height: "80px",
+                            height: isMobileView ? "60px" : "80px",
                             display: "flex",
                             justifyContent: "center",
                             alignItems: "center",
@@ -83,7 +104,7 @@ const TimeTableScheduling = () => {
                             width: "100%",
                         }}
                     >
-                        <AddIcon sx={{ color: "white", fontSize: "24px" }} />
+                        <AddIcon sx={{ color: "white", fontSize: isMobileView ? "20px" : "24px" }} />
                     </Box>
                 )
 
@@ -91,7 +112,7 @@ const TimeTableScheduling = () => {
                 return (
                     <Box
                         sx={{
-                            height: "80px",
+                            height: isMobileView ? "60px" : "80px",
                             display: "flex",
                             justifyContent: "center",
                             alignItems: "center",
@@ -101,7 +122,7 @@ const TimeTableScheduling = () => {
                             width: "100%",
                         }}
                     >
-                        <Typography variant="body1">Lunch</Typography>
+                        <Typography variant="body1" sx={{ fontSize: isMobileView ? "0.875rem" : "1rem" }}>Lunch</Typography>
                     </Box>
                 )
 
@@ -109,18 +130,18 @@ const TimeTableScheduling = () => {
                 return (
                     <Box
                         sx={{
-                            height: "80px",
+                            height: isMobileView ? "auto" : "80px",
                             display: "flex",
                             flexDirection: "column",
                             justifyContent: "center",
                             alignItems: "center",
                             backgroundColor: "#a9b4c0",
                             borderRadius: "4px",
-                            padding: "8px",
+                            padding: isMobileView ? "6px" : "8px",
                             width: "100%",
                         }}
                     >
-                        <Box sx={{ display: "flex", width: "100%", mb: 1 }}>
+                        <Box sx={{ display: "flex", width: "100%", mb: isMobileView ? 0.5 : 1 }}>
                             <FormControl fullWidth size="small">
                                 <Select
                                     value="English"
@@ -128,15 +149,17 @@ const TimeTableScheduling = () => {
                                     sx={{
                                         backgroundColor: "white",
                                         ".MuiOutlinedInput-notchedOutline": { border: "none" },
-                                        fontSize: "14px",
-                                        height: "30px",
+                                        fontSize: isMobileView ? "12px" : "14px",
+                                        height: isMobileView ? "24px" : "30px",
                                     }}
                                     startAdornment={
-                                        <InputAdornment position="start">
-                                            <Typography variant="caption" sx={{ color: "#666", fontSize: "12px" }}>
-                                                Select subject
-                                            </Typography>
-                                        </InputAdornment>
+                                        !isMobileView && (
+                                            <InputAdornment position="start">
+                                                <Typography variant="caption" sx={{ color: "#666", fontSize: "12px" }}>
+                                                    Select subject
+                                                </Typography>
+                                            </InputAdornment>
+                                        )
                                     }
                                     IconComponent={KeyboardArrowDownIcon}
                                 >
@@ -155,7 +178,11 @@ const TimeTableScheduling = () => {
                                     flex: 1,
                                     backgroundColor: "white",
                                     ".MuiOutlinedInput-notchedOutline": { border: "none" },
-                                    "& input": { fontSize: "14px", height: "14px", padding: "8px" },
+                                    "& input": { 
+                                        fontSize: isMobileView ? "12px" : "14px", 
+                                        height: isMobileView ? "10px" : "14px", 
+                                        padding: isMobileView ? "6px" : "8px" 
+                                    },
                                 }}
                             />
                             <IconButton
@@ -163,11 +190,11 @@ const TimeTableScheduling = () => {
                                 sx={{
                                     backgroundColor: "white",
                                     borderRadius: "4px",
-                                    width: "30px",
-                                    height: "30px",
+                                    width: isMobileView ? "24px" : "30px",
+                                    height: isMobileView ? "24px" : "30px",
                                 }}
                             >
-                                <EditIcon sx={{ fontSize: "16px", color: "#0091ea" }} />
+                                <EditIcon sx={{ fontSize: isMobileView ? "14px" : "16px", color: "#0091ea" }} />
                             </IconButton>
                         </Box>
                     </Box>
@@ -177,7 +204,7 @@ const TimeTableScheduling = () => {
                 return (
                     <Box
                         sx={{
-                            height: "80px",
+                            height: isMobileView ? "60px" : "80px",
                             display: "flex",
                             flexDirection: "column",
                             justifyContent: "center",
@@ -185,13 +212,13 @@ const TimeTableScheduling = () => {
                             backgroundColor: "#0091ea",
                             color: "white",
                             borderRadius: "4px",
-                            padding: "12px",
+                            padding: isMobileView ? "8px" : "12px",
                             position: "relative",
                             width: "100%",
                         }}
                     >
                         <Box sx={{ display: "flex", width: "100%", justifyContent: "space-between", mb: 0.5 }}>
-                            <Typography variant="body1" sx={{ fontWeight: 500 }}>
+                            <Typography variant="body1" sx={{ fontWeight: 500, fontSize: isMobileView ? "0.875rem" : "1rem" }}>
                                 {cellData.subject}
                             </Typography>
                             <IconButton
@@ -200,14 +227,14 @@ const TimeTableScheduling = () => {
                                     color: "white",
                                     padding: 0,
                                     position: "absolute",
-                                    top: "8px",
-                                    right: "8px",
+                                    top: isMobileView ? "4px" : "8px",
+                                    right: isMobileView ? "4px" : "8px",
                                 }}
                             >
-                                <EditIcon sx={{ fontSize: "18px" }} />
+                                <EditIcon sx={{ fontSize: isMobileView ? "14px" : "18px" }} />
                             </IconButton>
                         </Box>
-                        <Typography variant="body2" sx={{ fontSize: "13px" }}>
+                        <Typography variant="body2" sx={{ fontSize: isMobileView ? "11px" : "13px" }}>
                             {cellData.class}
                         </Typography>
                     </Box>
@@ -218,12 +245,231 @@ const TimeTableScheduling = () => {
         }
     }
 
+    // Mobile view - single day at a time
+    const renderMobileView = () => (
+        <>
+            <Tabs 
+                value={activeDay} 
+                onChange={handleDayChange} 
+                variant="scrollable"
+                scrollButtons="auto"
+                sx={{ 
+                    mb: 2,
+                    borderBottom: 1,
+                    borderColor: 'divider',
+                    '& .MuiTab-root': {
+                        minWidth: 'auto',
+                        px: 2
+                    }
+                }}
+            >
+                {days.map((day, index) => (
+                    <Tab key={day} label={day} id={`tab-${index}`} />
+                ))}
+            </Tabs>
+
+            <Box sx={{ mb: 3 }}>
+                {timeSlots.map((time, timeIndex) => (
+                    <Box 
+                        key={time}
+                        sx={{ 
+                            display: 'flex',
+                            mb: 2,
+                            alignItems: 'center'
+                        }}
+                    >
+                        <Box sx={{ width: '35%', pr: 1 }}>
+                            <Typography 
+                                variant="body2" 
+                                sx={{ 
+                                    fontWeight: time === "Lunch" ? "bold" : "normal",
+                                    fontSize: '0.875rem'
+                                }}
+                            >
+                                {time}
+                            </Typography>
+                        </Box>
+                        <Box sx={{ width: '65%' }}>
+                            {renderCell(timetableData[time][days[activeDay]], true)}
+                        </Box>
+                    </Box>
+                ))}
+            </Box>
+        </>
+    )
+
+    // Tablet view - scrollable horizontal table
+    const renderTabletView = () => (
+        <Paper elevation={0} sx={{ border: "1px solid #e0e0e0", borderRadius: "8px", overflow: "hidden" }}>
+            <Box sx={{ overflowX: "auto" }}>
+                <Box sx={{ minWidth: 700, display: "flex", flexDirection: "column" }}>
+                    {/* Header row with days */}
+                    <Box sx={{ display: "flex", borderBottom: "2px solid #e0e0e0" }}>
+                        {/* Empty cell for time column header */}
+                        <Box
+                            sx={{
+                                width: "18%",
+                                p: 1.5,
+                                fontWeight: "bold",
+                                borderRight: "1px solid #e0e0e0",
+                            }}
+                        >
+                            <Typography variant="body2" sx={{ fontWeight: "bold" }}>
+                                Time
+                            </Typography>
+                        </Box>
+
+                        {/* Day headers */}
+                        {days.map((day, index) => (
+                            <Box
+                                key={day}
+                                sx={{
+                                    width: `${82 / days.length}%`,
+                                    p: 1.5,
+                                    textAlign: "center",
+                                    borderRight: index < days.length - 1 ? "1px solid #e0e0e0" : "none",
+                                }}
+                            >
+                                <Typography variant="body2" sx={{ fontWeight: "bold" }}>
+                                    {day}
+                                </Typography>
+                            </Box>
+                        ))}
+                    </Box>
+
+                    {/* Time slots and class cells */}
+                    {timeSlots.map((time, timeIndex) => (
+                        <Box
+                            key={time}
+                            sx={{
+                                display: "flex",
+                                borderBottom: timeIndex < timeSlots.length - 1 ? "1px solid #e0e0e0" : "none",
+                            }}
+                        >
+                            {/* Time slot */}
+                            <Box
+                                sx={{
+                                    width: "18%",
+                                    p: 1.5,
+                                    borderRight: "1px solid #e0e0e0",
+                                    display: "flex",
+                                    alignItems: "center",
+                                }}
+                            >
+                                <Typography variant="body2" sx={{ fontWeight: time === "Lunch" ? "bold" : "normal" }}>
+                                    {time}
+                                </Typography>
+                            </Box>
+
+                            {/* Class cells for each day */}
+                            {days.map((day, dayIndex) => (
+                                <Box
+                                    key={`${day}-${time}`}
+                                    sx={{
+                                        width: `${82 / days.length}%`,
+                                        p: 0.75,
+                                        borderRight: dayIndex < days.length - 1 ? "1px solid #e0e0e0" : "none",
+                                    }}
+                                >
+                                    {renderCell(timetableData[time][day])}
+                                </Box>
+                            ))}
+                        </Box>
+                    ))}
+                </Box>
+            </Box>
+        </Paper>
+    )
+
+    // Desktop view - full table
+    const renderDesktopView = () => (
+        <Paper elevation={0} sx={{ border: "1px solid #e0e0e0", borderRadius: "8px", overflow: "hidden" }}>
+            <Box sx={{ overflowX: "auto" }}>
+                <Box sx={{ minWidth: 900, display: "flex", flexDirection: "column" }}>
+                    {/* Header row with days */}
+                    <Box sx={{ display: "flex", borderBottom: "2px solid #e0e0e0" }}>
+                        {/* Empty cell for time column header */}
+                        <Box
+                            sx={{
+                                width: "15%",
+                                p: 2,
+                                fontWeight: "bold",
+                                borderRight: "1px solid #e0e0e0",
+                            }}
+                        >
+                            <Typography variant="body1" sx={{ fontWeight: "bold" }}>
+                                Time
+                            </Typography>
+                        </Box>
+
+                        {/* Day headers */}
+                        {days.map((day, index) => (
+                            <Box
+                                key={day}
+                                sx={{
+                                    width: `${85 / days.length}%`,
+                                    p: 2,
+                                    textAlign: "center",
+                                    borderRight: index < days.length - 1 ? "1px solid #e0e0e0" : "none",
+                                }}
+                            >
+                                <Typography variant="body1" sx={{ fontWeight: "bold" }}>
+                                    {day}
+                                </Typography>
+                            </Box>
+                        ))}
+                    </Box>
+
+                    {/* Time slots and class cells */}
+                    {timeSlots.map((time, timeIndex) => (
+                        <Box
+                            key={time}
+                            sx={{
+                                display: "flex",
+                                borderBottom: timeIndex < timeSlots.length - 1 ? "1px solid #e0e0e0" : "none",
+                            }}
+                        >
+                            {/* Time slot */}
+                            <Box
+                                sx={{
+                                    width: "15%",
+                                    p: 2,
+                                    borderRight: "1px solid #e0e0e0",
+                                    display: "flex",
+                                    alignItems: "center",
+                                }}
+                            >
+                                <Typography variant="body1" sx={{ fontWeight: time === "Lunch" ? "bold" : "normal" }}>
+                                    {time}
+                                </Typography>
+                            </Box>
+
+                            {/* Class cells for each day */}
+                            {days.map((day, dayIndex) => (
+                                <Box
+                                    key={`${day}-${time}`}
+                                    sx={{
+                                        width: `${85 / days.length}%`,
+                                        p: 1,
+                                        borderRight: dayIndex < days.length - 1 ? "1px solid #e0e0e0" : "none",
+                                    }}
+                                >
+                                    {renderCell(timetableData[time][day])}
+                                </Box>
+                            ))}
+                        </Box>
+                    ))}
+                </Box>
+            </Box>
+        </Paper>
+    )
+
     return (
-        <Box sx={{ mt: 2, margin: "0 auto" }}>
+        <Box sx={{ mt: 2, margin: "0 auto", px: { xs: 1, sm: 2, md: 3 } }}>
             {/* Filter Section */}
-            <Grid container spacing={2} sx={{ mb: 4 }}>
-                <Grid item xs={12} sm={3}>
-                    <Typography variant="body1" sx={{ mb: 1, fontWeight: 400 }}>
+            <Grid container spacing={{ xs: 1, sm: 2 }} sx={{ mb: { xs: 2, sm: 3, md: 4 } }}>
+                <Grid item xs={12} sm={6} md={3}>
+                    <Typography variant="body1" sx={{ mb: 1, fontWeight: 400, fontSize: { xs: '0.875rem', sm: '1rem' } }}>
                         Select Teacher
                     </Typography>
                     <TextField
@@ -231,6 +477,7 @@ const TimeTableScheduling = () => {
                         placeholder="Select Teacher"
                         value={selectedTeacher}
                         onChange={(e) => setSelectedTeacher(e.target.value)}
+                        size={isMobile ? "small" : "medium"}
                         sx={{
                             backgroundColor: "#e0e0e0",
                             borderRadius: "8px",
@@ -249,8 +496,8 @@ const TimeTableScheduling = () => {
                     />
                 </Grid>
 
-                <Grid item xs={12} sm={3}>
-                    <Typography variant="body1" sx={{ mb: 1, fontWeight: 400 }}>
+                <Grid item xs={6} sm={6} md={3}>
+                    <Typography variant="body1" sx={{ mb: 1, fontWeight: 400, fontSize: { xs: '0.875rem', sm: '1rem' } }}>
                         Class
                     </Typography>
                     <FormControl fullWidth>
@@ -258,6 +505,7 @@ const TimeTableScheduling = () => {
                             value={selectedClass}
                             onChange={(e) => setSelectedClass(e.target.value)}
                             displayEmpty
+                            size={isMobile ? "small" : "medium"}
                             input={
                                 <OutlinedInput
                                     sx={{
@@ -269,7 +517,7 @@ const TimeTableScheduling = () => {
                             }
                             renderValue={(selected) => {
                                 if (!selected) {
-                                    return <Typography sx={{ color: "text.secondary" }}>Class</Typography>
+                                    return <Typography sx={{ color: "text.secondary", fontSize: isMobile ? '0.875rem' : '1rem' }}>Class</Typography>
                                 }
                                 return selected
                             }}
@@ -282,8 +530,8 @@ const TimeTableScheduling = () => {
                     </FormControl>
                 </Grid>
 
-                <Grid item xs={12} sm={3}>
-                    <Typography variant="body1" sx={{ mb: 1, fontWeight: 400 }}>
+                <Grid item xs={6} sm={6} md={3}>
+                    <Typography variant="body1" sx={{ mb: 1, fontWeight: 400, fontSize: { xs: '0.875rem', sm: '1rem' } }}>
                         Sec
                     </Typography>
                     <FormControl fullWidth>
@@ -291,6 +539,7 @@ const TimeTableScheduling = () => {
                             value={selectedSection}
                             onChange={(e) => setSelectedSection(e.target.value)}
                             displayEmpty
+                            size={isMobile ? "small" : "medium"}
                             input={
                                 <OutlinedInput
                                     sx={{
@@ -302,7 +551,7 @@ const TimeTableScheduling = () => {
                             }
                             renderValue={(selected) => {
                                 if (!selected) {
-                                    return <Typography sx={{ color: "text.secondary" }}>Sec</Typography>
+                                    return <Typography sx={{ color: "text.secondary", fontSize: isMobile ? '0.875rem' : '1rem' }}>Sec</Typography>
                                 }
                                 return selected
                             }}
@@ -315,8 +564,8 @@ const TimeTableScheduling = () => {
                     </FormControl>
                 </Grid>
 
-                <Grid item xs={12} sm={3}>
-                    <Typography variant="body1" sx={{ mb: 1, fontWeight: 400 }}>
+                <Grid item xs={12} sm={6} md={3}>
+                    <Typography variant="body1" sx={{ mb: 1, fontWeight: 400, fontSize: { xs: '0.875rem', sm: '1rem' } }}>
                         Select Date
                     </Typography>
                     <TextField
@@ -324,10 +573,11 @@ const TimeTableScheduling = () => {
                         placeholder="Select Date"
                         value={selectedDate}
                         onChange={(e) => setSelectedDate(e.target.value)}
+                        size={isMobile ? "small" : "medium"}
                         InputProps={{
                             endAdornment: (
                                 <InputAdornment position="end">
-                                    <CalendarTodayIcon />
+                                    <CalendarTodayIcon sx={{ fontSize: isMobile ? '1.25rem' : '1.5rem' }} />
                                 </InputAdornment>
                             ),
                         }}
@@ -351,90 +601,27 @@ const TimeTableScheduling = () => {
             </Grid>
 
             {/* Timetable Heading */}
-            <Typography variant="h6" sx={{ mb: 3, fontWeight: 500 }}>
+            <Typography 
+                variant={isMobile ? "subtitle1" : "h6"} 
+                sx={{ 
+                    mb: { xs: 1.5, sm: 2, md: 3 }, 
+                    fontWeight: 500,
+                    display: 'flex',
+                    alignItems: 'center'
+                }}
+            >
+                <SubjectIcon sx={{ mr: 1, display: { xs: 'inline', sm: 'none' } }} />
                 Weekly Timetable
             </Typography>
 
-            {/* Timetable using Grid layout instead of Table */}
-            <Paper elevation={0} sx={{ border: "1px solid #e0e0e0", borderRadius: "8px", overflow: "hidden" }}>
-                <Box sx={{ overflowX: "auto" }}>
-                    <Box sx={{ minWidth: 900, display: "flex", flexDirection: "column" }}>
-                        {/* Header row with days */}
-                        <Box sx={{ display: "flex", borderBottom: "2px solid #e0e0e0" }}>
-                            {/* Empty cell for time column header */}
-                            <Box
-                                sx={{
-                                    width: "15%",
-                                    p: 2,
-                                    fontWeight: "bold",
-                                    borderRight: "1px solid #e0e0e0",
-                                }}
-                            >
-                                <Typography variant="body1" sx={{ fontWeight: "bold" }}>
-                                    Time
-                                </Typography>
-                            </Box>
-
-                            {/* Day headers */}
-                            {days.map((day, index) => (
-                                <Box
-                                    key={day}
-                                    sx={{
-                                        width: `${85 / days.length}%`,
-                                        p: 2,
-                                        textAlign: "center",
-                                        borderRight: index < days.length - 1 ? "1px solid #e0e0e0" : "none",
-                                    }}
-                                >
-                                    <Typography variant="body1" sx={{ fontWeight: "bold" }}>
-                                        {day}
-                                    </Typography>
-                                </Box>
-                            ))}
-                        </Box>
-
-                        {/* Time slots and class cells */}
-                        {timeSlots.map((time, timeIndex) => (
-                            <Box
-                                key={time}
-                                sx={{
-                                    display: "flex",
-                                    borderBottom: timeIndex < timeSlots.length - 1 ? "1px solid #e0e0e0" : "none",
-                                }}
-                            >
-                                {/* Time slot */}
-                                <Box
-                                    sx={{
-                                        width: "15%",
-                                        p: 2,
-                                        borderRight: "1px solid #e0e0e0",
-                                        display: "flex",
-                                        alignItems: "center",
-                                    }}
-                                >
-                                    <Typography variant="body1" sx={{ fontWeight: time === "Lunch" ? "bold" : "normal" }}>
-                                        {time}
-                                    </Typography>
-                                </Box>
-
-                                {/* Class cells for each day */}
-                                {days.map((day, dayIndex) => (
-                                    <Box
-                                        key={`${day}-${time}`}
-                                        sx={{
-                                            width: `${85 / days.length}%`,
-                                            p: 1,
-                                            borderRight: dayIndex < days.length - 1 ? "1px solid #e0e0e0" : "none",
-                                        }}
-                                    >
-                                        {renderCell(timetableData[time][day])}
-                                    </Box>
-                                ))}
-                            </Box>
-                        ))}
-                    </Box>
-                </Box>
-            </Paper>
+            {/* Responsive Timetable Views */}
+            {isMobile ? (
+                renderMobileView()
+            ) : isTablet ? (
+                renderTabletView()
+            ) : (
+                renderDesktopView()
+            )}
         </Box>
     )
 }
