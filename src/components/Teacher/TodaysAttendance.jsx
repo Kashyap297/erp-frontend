@@ -8,10 +8,10 @@ const TodaysAttendance = () => {
             </Typography>
             <Button
                 variant="contained"
-                color="success"
                 sx={{
                     borderRadius: 1,
                     textTransform: "none",
+                    backgroundColor: "#1Ca401",
                     px: 3,
                 }}
             >

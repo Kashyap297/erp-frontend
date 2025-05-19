@@ -85,7 +85,7 @@ const TimeTable = () => {
   }
 
   return (
-    <Box sx={{ p: 3 }}>
+    <Box sx={{ my: 3 }}>
       <Typography variant="h5" component="h1" sx={{ mb: 2, fontWeight: 500 }}>
         Time Table
       </Typography>

@@ -17,7 +17,7 @@ import {
 import { styled } from '@mui/material/styles';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import TimeTable from '../components/TimeTable';
-import ProfileCard from '../components/ProfileCard';
+import ProfileCard from '../components/common/ProfileCard';
 
 // Custom styled components
 const StatsCard = styled(Box)(({ theme }) => ({

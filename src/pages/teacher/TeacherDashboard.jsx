@@ -63,16 +63,15 @@ const TeacherDashboard = () => {
 
     const Data = {
         name: "Ranjeet Singh",
-        role: "Teacher",
-        contact: "+91 000000 00000",
-        email: "rsingh45@gmail.com",
-        classAdvisor: "Class Advisor",
+        contact: "+91 00000 00000",
+        email: "oihafsdi@gmail.com",
+        profileImage: "/path-to-image.jpg", // Optional, will use default if not provided
         attendance: 90,
         leaveBalance: {
-            annual: 60,
-            sick: 40,
-            paid: 20,
-        },
+            annual: 45,
+            sick: 75,
+            paid: 28
+        }
     };
 
     // Mock data
@@ -117,11 +116,28 @@ const TeacherDashboard = () => {
             <TimeTable />
 
             {/* Events & Assignments */}
-            <Grid container spacing={2} >
-                <Grid item xs={12} md={6} sx={{ width: '49.5%' } }>
+            <Grid container spacing={2}>
+                <Grid item xs={12} md={6} lg={6} sx={{
+                    width: '100%',
+                    // Adjustments for different screen sizes
+                    '@media (min-width: 900px) and (max-width: 1199px)': {
+                        width: 'calc(50% - 8px)' // accounts for the spacing
+                    },
+                    '@media (min-width: 1200px)': {
+                        width: '49.5%'
+                    }
+                }}>
                     <UpcomingEvents />
                 </Grid>
-                <Grid item xs={12} md={6} sx={{ width: '49.5%' }}>
+                <Grid item xs={12} md={6} lg={6} sx={{
+                    width: '100%',
+                    '@media (min-width: 900px) and (max-width: 1199px)': {
+                        width: 'calc(50% - 8px)'
+                    },
+                    '@media (min-width: 1200px)': {
+                        width: '49.5%'
+                    }
+                }}>
                     <PendingAssignments />
                 </Grid>
             </Grid>
