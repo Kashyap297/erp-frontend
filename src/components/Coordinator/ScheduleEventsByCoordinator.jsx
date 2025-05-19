@@ -30,7 +30,6 @@ const ScheduleEventsByCoordinator = () => {
             onSubmit={handleSubmit}
             sx={{
                 mx: "auto",
-                p: 3,
                 display: "flex",
                 flexDirection: "column",
                 gap: 2,

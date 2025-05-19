@@ -110,7 +110,7 @@ const CoordinateDashboard = () => {
     }
 
     return (
-        <Box sx={{ width: "100%", p: 3 }}>
+        <Box sx={{ width: "100%" }}>
 
             <Box sx={{ mb: 4 }}>
                 <ProfileCard data={Data} />

@@ -111,7 +111,7 @@ const StudentList = () => {
     })
 
     return (
-        <Box sx={{ width: "100%", p: 4 }}>
+        <Box sx={{ width: "100%"}}>
             {/* Search and Filter Row */}
             <Box sx={{ display: "flex", justifyContent: "space-between", mb: 3, gap: 2 }}>
                 <Paper

@@ -587,7 +587,7 @@ const TimeTableScheduling = () => {
   )
 
   return (
-    <Box sx={{ mt: 2, margin: "0 auto", px: { xs: 1, sm: 2, md: 3 } }}>
+    <Box sx={{ mt: 2, margin: "0 auto", px: { xs: 1, sm: 2, md: 0 } }}>
       {/* Filter Section */}
       <Grid container spacing={{ xs: 1, sm: 2 }} sx={{ mb: { xs: 2, sm: 3, md: 4 } }}>
         <Grid item xs={12} sm={6} md={3}>

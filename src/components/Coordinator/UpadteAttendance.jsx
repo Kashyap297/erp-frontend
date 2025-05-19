@@ -136,7 +136,7 @@ const UpadteAttendance = () => {
     }
 
     return (
-        <Box sx={{ p: 3, maxWidth: "100%", mx: "auto" }}>
+        <Box sx={{ maxWidth: "100%", mx: "auto" }}>
             {/* Filter Section */}
             <LocalizationProvider dateAdapter={AdapterDateFns}>
                 <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2, mb: 3 }}>

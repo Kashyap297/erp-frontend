@@ -74,7 +74,7 @@ const FeesStructure = () => {
     })
 
     return (
-        <Box sx={{ width: "100%", mt: 2 }}>
+        <Box sx={{ width: "100%" }}>
             {/* Search and Filter Row */}
             <Box sx={{ display: "flex", gap: 2, mb: 4, flexWrap: { xs: "wrap", sm: "nowrap" } }}>
                 {/* Search Field */}

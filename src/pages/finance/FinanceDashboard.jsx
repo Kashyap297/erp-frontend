@@ -167,7 +167,7 @@ const FinanceDashboard = () => {
     );
 
     return (
-        <Box sx={{ width: "100%", mt: 2, px: { xs: 1, md: 2 } }}>
+        <Box sx={{ width: "100%", mt: 2, px: { xs: 1, md: 0 } }}>
             {/* Profile Card Section */}
             <Box sx={{ mb: 4 }}>
                 <ProfileCard data={Data} />
