@@ -103,7 +103,7 @@ const PaymentTracking = () => {
                         flex: 1,
                         "& .MuiOutlinedInput-root": {
                             borderRadius: "8px",
-                            bgcolor: "#f5f5f5",
+                            bgcolor: "#D9D9D9C2",
                             "& fieldset": {
                                 borderColor: "#e0e0e0",
                             },
@@ -128,7 +128,7 @@ const PaymentTracking = () => {
                     sx={{
                         width: { xs: "100%", sm: 170 },
                         borderRadius: "8px",
-                        bgcolor: "#f5f5f5",
+                        bgcolor: "#D9D9D9C2",
                         "& .MuiOutlinedInput-notchedOutline": {
                             borderColor: "#e0e0e0",
                         },
@@ -150,7 +150,7 @@ const PaymentTracking = () => {
                     sx={{
                         width: { xs: "100%", sm: 170 },
                         borderRadius: "8px",
-                        bgcolor: "#f5f5f5",
+                        bgcolor: "#D9D9D9C2",
                         "& .MuiOutlinedInput-notchedOutline": {
                             borderColor: "#e0e0e0",
                         },
@@ -170,7 +170,7 @@ const PaymentTracking = () => {
                         borderRadius: "8px",
                         borderColor: "#e0e0e0",
                         color: "text.primary",
-                        bgcolor: "#f5f5f5",
+                        bgcolor: "#D9D9D9C2",
                         "&:hover": {
                             bgcolor: "#e0e0e0",
                             borderColor: "#bdbdbd",
