@@ -10,6 +10,8 @@ import LeaveApproval from '../components/Principal/LeaveApproval';
 import EventsList from '../components/common/EventsList';
 import PaySlips from '../components/Teacher/PaySlips';
 import StudentList from '../components/Principal/StudentList';
+import UpadteAttendance from '../components/Coordinator/UpadteAttendance';
+import StudentAttendanceTable from '../components/Coordinator/StudentAttendanceTable';
 
 
 
@@ -29,7 +31,8 @@ const CoordinatorRoutes = () => {
 
 
       
-      <Route path="/update-attendance" element={<FinanceDashboard />} />
+      <Route path="/update-attendance" element={<UpadteAttendance />} />
+      <Route path="/update-attendance/update/:studentId" element={<StudentAttendanceTable />} />
       <Route path="/remark" element={<RemarkForm />} />
       <Route path="/support" element={<ChatInterface />} />
     </Routes>
