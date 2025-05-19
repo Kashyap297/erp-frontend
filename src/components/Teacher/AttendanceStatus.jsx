@@ -184,7 +184,7 @@ const AttendanceStatus = () => {
               color: "text.primary",
               bgcolor: "#D9D9D9C2",
               "&:hover": {
-                bgcolor: "#e0e0e0",
+                bgcolor: "",
                 borderColor: "#bdbdbd",
               },
               height: '100%',
