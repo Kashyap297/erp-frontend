@@ -20,7 +20,7 @@ const TimelineCell = styled(Paper)(({ theme, active }) => ({
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'space-between',
-  backgroundColor: active ? '#2196f3' : '#fff',
+  backgroundColor: active ? '#2C9EF4' : '#fff',
   color: active ? '#fff' : 'inherit',
   transition: 'background-color 0.3s ease',
   '&:hover': {
@@ -195,8 +195,8 @@ export default function TimeTable() {
                       size="small"
                       sx={{ 
                         mt: 1,
-                        backgroundColor: slot.isActive ? '#ffffff' : '#2196f3',
-                        color: slot.isActive ? '#2196f3' : '#ffffff',
+                        backgroundColor: slot.isActive ? '#ffffff' : '#2C9EF4',
+                        color: slot.isActive ? '#2C9EF4' : '#ffffff',
                         '&:hover': {
                           backgroundColor: slot.isActive ? '#f5f5f5' : '#1976d2',
                         }

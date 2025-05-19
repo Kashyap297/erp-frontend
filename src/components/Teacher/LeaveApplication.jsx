@@ -62,7 +62,7 @@ export default function LeaveApplication() {
                   backgroundColor: "#e0e0e0",
                   width: "100%",
                   "& .MuiLinearProgress-bar": {
-                    backgroundColor: "#2196f3",
+                    backgroundColor: "#2C9EF4",
                   },
                 }}
               />
@@ -85,7 +85,7 @@ export default function LeaveApplication() {
                   backgroundColor: "#e0e0e0",
                   width: "100%",
                   "& .MuiLinearProgress-bar": {
-                    backgroundColor: "#2196f3",
+                    backgroundColor: "#2C9EF4",
                   },
                 }}
               />
@@ -108,7 +108,7 @@ export default function LeaveApplication() {
                   backgroundColor: "#e0e0e0",
                   width: "100%",
                   "& .MuiLinearProgress-bar": {
-                    backgroundColor: "#2196f3",
+                    backgroundColor: "#2C9EF4",
                   },
                 }}
               />
@@ -133,7 +133,7 @@ export default function LeaveApplication() {
                 textTransform: "none",
                 fontWeight: 500,
                 fontSize: "0.95rem",
-                color: "#2196f3",
+                color: "#2C9EF4",
               }}
               onClick={() => navigate('/teacher/leave/history')} // Add this onClick handler
             >

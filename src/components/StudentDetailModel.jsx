@@ -78,7 +78,7 @@ const StudentDetailsModel = ({ open, handleClose }) => {
             </Box>
 
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
-              <PaymentIcon sx={{ color: '#2196f3', mr: 1 }} />
+              <PaymentIcon sx={{ color: '#2C9EF4', mr: 1 }} />
               <Typography>Fee Status - <span style={{ color: 'green' }}>Paid</span></Typography>
             </Box>
           </Grid>
@@ -114,13 +114,13 @@ const StudentDetailsModel = ({ open, handleClose }) => {
             <Box sx={{ display: 'flex', gap: 2 }}>
               <Button 
                 variant="text" 
-                sx={{ color: '#2196f3', textTransform: 'none' }}
+                sx={{ color: '#2C9EF4', textTransform: 'none' }}
               >
                 Result
               </Button>
               <Button 
                 variant="text" 
-                sx={{ color: '#2196f3', textTransform: 'none' }}
+                sx={{ color: '#2C9EF4', textTransform: 'none' }}
               >
                 Attendance
               </Button>

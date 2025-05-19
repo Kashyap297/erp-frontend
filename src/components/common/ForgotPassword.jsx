@@ -32,7 +32,7 @@ export default function ForgotPassword() {
                         flexDirection: "column",
                         alignItems: "center",
                         justifyContent: "center",
-                        background: "linear-gradient(135deg, #1976d2 0%, #2196f3 100%)",
+                        background: "linear-gradient(135deg, #1976d2 0%, #2C9EF4 100%)",
                         position: "relative",
                         overflow: "hidden",
                     }}
@@ -133,7 +133,7 @@ export default function ForgotPassword() {
                                 borderRadius: 1,
                                 textTransform: "none",
                                 fontSize: "1rem",
-                                backgroundColor: "#2196f3",
+                                backgroundColor: "#2C9EF4",
                                 "&:hover": {
                                     backgroundColor: "#1976d2",
                                 },

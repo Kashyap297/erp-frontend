@@ -47,7 +47,7 @@ const RemarkForm = () => {
                 borderColor: "#999",
             },
             "&.Mui-focused fieldset": {
-                borderColor: "#2196f3",
+                borderColor: "#2C9EF4",
                 borderWidth: "1px",
             },
         },
@@ -147,7 +147,7 @@ const RemarkForm = () => {
                             py: 1.5,
                             textTransform: "none",
                             fontSize: "1rem",
-                            bgcolor: "#2196f3",
+                            bgcolor: "#2C9EF4",
                             "&:hover": {
                                 bgcolor: "#1976d2",
                             },

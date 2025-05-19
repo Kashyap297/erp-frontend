@@ -132,9 +132,9 @@ const LeaveApproval = () => {
     const getStatusColor = (status) => {
         switch (status) {
             case "Approved":
-                return "#4caf50" // Green
+                return "#2DB500" // Green
             case "Rejected":
-                return "#f44336" // Red
+                return "#EB2E2E" // Red
             case "Pending":
                 return "#ff9800" // Orange/Yellow
             default:

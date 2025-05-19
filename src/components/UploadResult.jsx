@@ -148,7 +148,7 @@ export default function UploadResult() {
             <Button 
               variant="contained" 
               sx={{ 
-                bgcolor: '#2196f3',
+                bgcolor: '#2C9EF4',
                 borderRadius: '4px',
                 textTransform: 'none',
                 px: 4,

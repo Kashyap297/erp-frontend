@@ -227,7 +227,7 @@ const FeesVerification = () => {
                                         onClick={() => handleUpdate(fee)}
                                         size="small"
                                         sx={{
-                                            bgcolor: "#2196f3",
+                                            bgcolor: "#2C9EF4",
                                             color: "white",
                                             textTransform: "none",
                                             borderRadius: "4px",
@@ -258,7 +258,7 @@ const FeesVerification = () => {
                         width: "450px",
                         maxWidth: "95%",
                         borderRadius: "8px",
-                        border: "2px solid #2196f3",
+                        border: "2px solid #2C9EF4",
                         boxShadow: "0 4px 20px rgba(0,0,0,0.1)",
                         p: 0,
                         overflow: "hidden"

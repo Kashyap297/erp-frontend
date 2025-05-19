@@ -139,7 +139,7 @@ const FinanceDashboard = () => {
                     <Typography 
                         variant="body1" 
                         sx={{ 
-                            color: "#4caf50", 
+                            color: "#2DB500", 
                             fontWeight: "medium" 
                         }}
                     >
@@ -381,7 +381,7 @@ const FinanceDashboard = () => {
                                         <TableCell>{transaction.studentName}</TableCell>
                                         <TableCell>{transaction.class}</TableCell>
                                         <TableCell>{transaction.paymentType}</TableCell>
-                                        <TableCell sx={{ color: "#4caf50", fontWeight: "medium" }}>{transaction.amount}</TableCell>
+                                        <TableCell sx={{ color: "#2DB500", fontWeight: "medium" }}>{transaction.amount}</TableCell>
                                     </TableRow>
                                 ))}
                             </TableBody>

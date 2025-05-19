@@ -105,10 +105,10 @@ const LeaveHistory = () => {
                             >
                                 {/* Left side - From and Till dates */}
                                 <Box sx={{ display: "flex", flexDirection: "column" }}>
-                                    <Typography variant="body1" color="#2196f3" sx={{ mb: 0.5 }}>
+                                    <Typography variant="body1" color="#2C9EF4" sx={{ mb: 0.5 }}>
                                         From - {leave.fromDate}
                                     </Typography>
-                                    <Typography variant="body1" color="#2196f3">
+                                    <Typography variant="body1" color="#2C9EF4">
                                         Till - {leave.tillDate}
                                     </Typography>
                                 </Box>
@@ -138,14 +138,14 @@ const LeaveHistory = () => {
                                     sx={{
                                         display: "flex",
                                         alignItems: "center",
-                                        color: "#2196f3",
+                                        color: "#2C9EF4",
                                         cursor: "pointer",
                                         justifyContent: "flex-end",
                                     }}
                                     onClick={() => handleViewDocument(leave.id)}
                                 >
                                     <DescriptionIcon sx={{ mr: 0.5, fontSize: "1.2rem" }} />
-                                    <Typography variant="body1" color="#2196f3">
+                                    <Typography variant="body1" color="#2C9EF4">
                                         Document
                                     </Typography>
                                 </Box>

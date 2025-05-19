@@ -193,11 +193,11 @@ const StudentManagement = () => {
   const getStatusColor = (status) => {
     switch (status) {
       case "Active":
-        return "#4CAF50" // Green
+        return "#2DB500" // Green
       case "On leave":
         return "#FF5722" // Orange/Red
       case "Pass out":
-        return "#F44336" // Red
+        return "#EB2E2E" // Red
       default:
         return "#757575" // Gray
     }
@@ -438,7 +438,7 @@ const StudentManagement = () => {
               <Button
                 onClick={() => handleViewDetail(student)}
                 sx={{
-                  color: "#2196f3",
+                  color: "#2C9EF4",
                   textTransform: "none",
                   "&:hover": {
                     bgcolor: "transparent",
@@ -463,7 +463,7 @@ const StudentManagement = () => {
             width: "500px",
             maxWidth: "95%",
             borderRadius: "8px",
-            border: "2px solid #2196f3",
+            border: "2px solid #2C9EF4",
             boxShadow: "0 4px 20px rgba(0,0,0,0.1)",
             p: 0,
             overflow: "hidden",

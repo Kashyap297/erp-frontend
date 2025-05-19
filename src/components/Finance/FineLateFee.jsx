@@ -203,7 +203,7 @@ const FineLateFee = () => {
                     startIcon={<AddIcon />}
                     onClick={handleAddCategory}
                     sx={{
-                        bgcolor: "#2196f3",
+                        bgcolor: "#2C9EF4",
                         color: "white",
                         textTransform: "none",
                         borderRadius: "4px",
@@ -266,7 +266,7 @@ const FineLateFee = () => {
                                             onClick={() => handleChange(category.id)}
                                             size="small"
                                             sx={{
-                                                bgcolor: "#2196f3",
+                                                bgcolor: "#2C9EF4",
                                                 color: "white",
                                                 textTransform: "none",
                                                 borderRadius: "4px",
@@ -286,7 +286,7 @@ const FineLateFee = () => {
                                             onClick={() => handleRemove(category.id)}
                                             size="small"
                                             sx={{
-                                                bgcolor: "#f44336",
+                                                bgcolor: "#EB2E2E",
                                                 color: "white",
                                                 textTransform: "none",
                                                 borderRadius: "4px",
@@ -318,7 +318,7 @@ const FineLateFee = () => {
                         width: "400px",
                         maxWidth: "90%",
                         borderRadius: "8px",
-                        border: "2px solid #2196f3",
+                        border: "2px solid #2C9EF4",
                         boxShadow: "0 4px 20px rgba(0,0,0,0.1)",
                         p: 1
                     }
@@ -395,7 +395,7 @@ const FineLateFee = () => {
                     <Button
                         onClick={handleAddNewCategory}
                         sx={{
-                            color: "#2196f3",
+                            color: "#2C9EF4",
                             textTransform: "none",
                             "&:hover": {
                                 bgcolor: "transparent",

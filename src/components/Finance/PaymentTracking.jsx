@@ -203,13 +203,13 @@ const PaymentTracking = () => {
                                     <Box sx={{ display: "flex", alignItems: "center" }}>
                                         {payment.status === "Paid" ? (
                                             <>
-                                                <CheckIcon sx={{ color: "#4caf50", fontSize: "1rem", mr: 0.5 }} />
-                                                <span style={{ color: "#4caf50" }}>Paid</span>
+                                                <CheckIcon sx={{ color: "#2DB500", fontSize: "1rem", mr: 0.5 }} />
+                                                <span style={{ color: "#2DB500" }}>Paid</span>
                                             </>
                                         ) : (
                                             <>
-                                                <CloseIcon sx={{ color: "#f44336", fontSize: "1rem", mr: 0.5 }} />
-                                                <span style={{ color: "#f44336" }}>Unpaid</span>
+                                                <CloseIcon sx={{ color: "#EB2E2E", fontSize: "1rem", mr: 0.5 }} />
+                                                <span style={{ color: "#EB2E2E" }}>Unpaid</span>
                                             </>
                                         )}
                                     </Box>
@@ -221,7 +221,7 @@ const PaymentTracking = () => {
                                             variant="text"
                                             onClick={() => handleSendReminder(payment.student)}
                                             sx={{
-                                                color: "#f44336",
+                                                color: "#EB2E2E",
                                                 textTransform: "none",
                                                 p: 0,
                                                 minWidth: "auto",

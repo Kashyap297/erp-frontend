@@ -13,7 +13,7 @@ const StudentCard = styled(Box)(({ theme }) => ({
 }))
 
 const ViewDetailButton = styled(Typography)({
-  color: "#2196f3",
+  color: "#2C9EF4",
   fontSize: "14px",
   cursor: "pointer",
 })
@@ -21,7 +21,7 @@ const ViewDetailButton = styled(Typography)({
 const StatusText = styled(Typography)(({ status }) => ({
   fontSize: "14px",
   fontWeight: 500,
-  color: status === "Active" ? "#4caf50" : status === "On leave" ? "#f44336" : "#f44336",
+  color: status === "Active" ? "#2DB500" : status === "On leave" ? "#EB2E2E" : "#EB2E2E",
 }))
 
 export default function StudentList() {

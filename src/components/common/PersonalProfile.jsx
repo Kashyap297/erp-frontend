@@ -98,7 +98,7 @@ export default function PersonalProfile() {
                                 size="small"
                                 sx={{
                                     textTransform: "none",
-                                    backgroundColor: "#2196f3",
+                                    backgroundColor: "#2C9EF4",
                                     "&:hover": {
                                         backgroundColor: "#1976d2",
                                     },
@@ -285,7 +285,7 @@ export default function PersonalProfile() {
                                     borderRadius: 1,
                                     textTransform: "none",
                                     fontSize: "1rem",
-                                    backgroundColor: "#2196f3",
+                                    backgroundColor: "#2C9EF4",
                                     "&:hover": {
                                         backgroundColor: "#1976d2",
                                     },

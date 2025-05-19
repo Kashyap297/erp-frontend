@@ -37,9 +37,9 @@ const LeaveRequestDetailsModel = ({ open, onClose, leaveRequest }) => {
       case 'Pending':
         return '#FFD700'; // Yellow
       case 'Approved':
-        return '#4CAF50'; // Green
+        return '#2DB500'; // Green
       case 'Rejected':
-        return '#F44336'; // Red
+        return '#EB2E2E'; // Red
       default:
         return 'inherit';
     }

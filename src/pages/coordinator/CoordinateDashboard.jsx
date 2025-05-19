@@ -98,9 +98,9 @@ const CoordinateDashboard = () => {
                             borderRadius: "50%",
                             bgcolor:
                                 status === "present"
-                                    ? "#4caf50" // Green for present
+                                    ? "#2DB500" // Green for present
                                     : status === "absent"
-                                        ? "#f44336" // Red for absent
+                                        ? "#EB2E2E" // Red for absent
                                         : "#bdbdbd", // Gray for no record
                         }}
                     />
@@ -254,7 +254,7 @@ const CoordinateDashboard = () => {
                                     <TableCell>
                                         <Typography
                                             sx={{
-                                                color: application.status === "Approved" ? "#4caf50" : "#ff9800",
+                                                color: application.status === "Approved" ? "#2DB500" : "#ff9800",
                                                 fontWeight: "medium",
                                             }}
                                         >
@@ -267,7 +267,7 @@ const CoordinateDashboard = () => {
                                                 size="small"
                                                 variant="contained"
                                                 sx={{
-                                                    bgcolor: "#4caf50",
+                                                    bgcolor: "#2DB500",
                                                     "&:hover": { bgcolor: "#388e3c" },
                                                     textTransform: "none",
                                                     minWidth: "60px",
@@ -279,7 +279,7 @@ const CoordinateDashboard = () => {
                                                 size="small"
                                                 variant="contained"
                                                 sx={{
-                                                    bgcolor: "#f44336",
+                                                    bgcolor: "#EB2E2E",
                                                     "&:hover": { bgcolor: "#d32f2f" },
                                                     textTransform: "none",
                                                     minWidth: "60px",

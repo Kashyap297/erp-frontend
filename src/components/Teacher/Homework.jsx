@@ -55,8 +55,8 @@ const Homework = () => {
               p: 2,
               bgcolor: "#D9D9D9",
               borderRadius: 1,
-              borderTop: "5px solid #2196f3",
-              borderBottom: "1px solid #2196f3",
+              borderTop: "5px solid #2C9EF4",
+              borderBottom: "1px solid #2C9EF4",
               "&:hover": {
                 bgcolor: "#e0e0e0",
                 cursor: "pointer",
@@ -66,7 +66,7 @@ const Homework = () => {
             <Typography variant="h6" component="div" sx={{ fontWeight: "medium" }}>
               {homework.title}
             </Typography>
-            <Typography variant="body2" color="#2196f3" sx={{ mb: 0.5 }}>
+            <Typography variant="body2" color="#2C9EF4" sx={{ mb: 0.5 }}>
               {homework.subject}
             </Typography>
             <Typography variant="body2" sx={{ mb: 1 }}>

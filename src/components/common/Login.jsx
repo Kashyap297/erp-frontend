@@ -68,7 +68,7 @@ export default function Login() {
                         flexDirection: "column",
                         alignItems: "center",
                         justifyContent: "center",
-                        background: "linear-gradient(135deg, #1976d2 0%, #2196f3 100%)",
+                        background: "linear-gradient(135deg, #1976d2 0%, #2C9EF4 100%)",
                         position: "relative",
                         overflow: "hidden",
                     }}
@@ -145,7 +145,7 @@ export default function Login() {
                         />
 
                         <Box sx={{ display: "flex", justifyContent: "flex-end", mb: 2 }}>
-                            <Link href="/forget-password" variant="body2" color="#2196f3" underline="hover">
+                            <Link href="/forget-password" variant="body2" color="#2C9EF4" underline="hover">
                                 Forget Password?
                             </Link>
                         </Box>
@@ -164,13 +164,13 @@ export default function Login() {
                                         sx={{
                                             border:
                                                 selectedRole === role.id
-                                                    ? "2px solid #2196f3"
+                                                    ? "2px solid #2C9EF4"
                                                     : role.highlight
-                                                        ? "1px solid #2196f3"
+                                                        ? "1px solid #2C9EF4"
                                                         : "1px solid #e0e0e0",
-                                            color: role.highlight && selectedRole !== role.id ? "#2196f3" : "inherit",
+                                            color: role.highlight && selectedRole !== role.id ? "#2C9EF4" : "inherit",
                                             "& .MuiSvgIcon-root": {
-                                                color: selectedRole === role.id ? "#2196f3" : role.highlight ? "#2196f3" : "inherit",
+                                                color: selectedRole === role.id ? "#2C9EF4" : role.highlight ? "#2C9EF4" : "inherit",
                                             },
                                         }}
                                     >
@@ -193,7 +193,7 @@ export default function Login() {
                                 borderRadius: 1,
                                 textTransform: "none",
                                 fontSize: "1rem",
-                                backgroundColor: "#2196f3",
+                                backgroundColor: "#2C9EF4",
                                 "&:hover": {
                                     backgroundColor: "#1976d2",
                                 },

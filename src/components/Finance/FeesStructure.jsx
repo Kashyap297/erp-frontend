@@ -187,7 +187,7 @@ const FeesStructure = () => {
                                         variant="contained"
                                         onClick={() => handleChange(category.id)}
                                         sx={{
-                                            bgcolor: "#2196f3",
+                                            bgcolor: "#2C9EF4",
                                             color: "white",
                                             textTransform: "none",
                                             borderRadius: "4px",

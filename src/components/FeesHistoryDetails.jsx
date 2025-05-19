@@ -17,11 +17,11 @@ const theme = createTheme({
   palette: {
     success: {
       light: '#e8f5e9',
-      main: '#4caf50',
+      main: '#2DB500',
     },
     error: {
       light: '#ffebee',
-      main: '#f44336',
+      main: '#EB2E2E',
     },
   },
 });

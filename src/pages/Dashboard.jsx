@@ -85,7 +85,7 @@ const Dashboard = () => {
   ];
 
   const getStatusColor = (status) => {
-    return status === 'present' ? '#4CAF50' : status === 'absent' ? '#F44336' : '#9E9E9E';
+    return status === 'present' ? '#2DB500' : status === 'absent' ? '#EB2E2E' : '#9E9E9E';
   };
 
   return (

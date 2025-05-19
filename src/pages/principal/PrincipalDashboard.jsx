@@ -73,9 +73,9 @@ const PrincipalDashboard = () => {
                             borderRadius: "50%",
                             bgcolor:
                                 status === "present"
-                                    ? "#4caf50" // Green for present
+                                    ? "#2DB500" // Green for present
                                     : status === "absent"
-                                        ? "#f44336" // Red for absent
+                                        ? "#EB2E2E" // Red for absent
                                         : "#bdbdbd", // Gray for no record
                         }}
                     />
@@ -246,7 +246,7 @@ const PrincipalDashboard = () => {
                                     <TableCell>
                                         <Typography
                                             sx={{
-                                                color: fee.status === "Paid" ? "#4caf50" : "#ff9800",
+                                                color: fee.status === "Paid" ? "#2DB500" : "#ff9800",
                                                 fontWeight: "medium",
                                             }}
                                         >

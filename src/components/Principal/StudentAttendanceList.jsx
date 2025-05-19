@@ -56,9 +56,9 @@ const StudentAttendanceList = () => {
                             borderRadius: "50%",
                             bgcolor:
                                 status === "present"
-                                    ? "#4caf50" // Green for present
+                                    ? "#2DB500" // Green for present
                                     : status === "absent"
-                                        ? "#f44336" // Red for absent
+                                        ? "#EB2E2E" // Red for absent
                                         : "#bdbdbd", // Gray for no record
                         }}
                     />
@@ -163,7 +163,7 @@ const StudentAttendanceList = () => {
             <TableContainer
                 component={Paper}
                 elevation={0}
-                sx={{ border: "1px solid #e0e0e0", borderBottom: "2px solid #2196f3" }}
+                sx={{ border: "1px solid #e0e0e0", borderBottom: "2px solid #2C9EF4" }}
             >
                 <Table sx={{ minWidth: 650 }}>
                     <TableHead>

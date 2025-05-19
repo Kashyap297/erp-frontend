@@ -214,7 +214,7 @@ const AttendanceMarking = () => {
           textTransform: "none",
           minWidth: isMobile ? "100%" : 100,
           bgcolor: student.isPresent === true ? "#1CA401" : "transparent",
-          color: student.isPresent === true ? "white" : "#4caf50",
+          color: student.isPresent === true ? "white" : "#2DB500",
           borderColor: "#1CA401",
         }}
       >
@@ -231,8 +231,8 @@ const AttendanceMarking = () => {
           textTransform: "none",
           minWidth: isMobile ? "100%" : 100,
           bgcolor: student.isPresent === false ? "#D80303" : "transparent",
-          color: student.isPresent === false ? "white" : "#f44336",
-          borderColor: "#f44336",
+          color: student.isPresent === false ? "white" : "#EB2E2E",
+          borderColor: "#EB2E2E",
         }}
       >
         Absent

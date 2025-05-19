@@ -244,7 +244,7 @@ const TimeTable = () => {
               borderBottom: selectedSlot === index ? 'none' : '1px solid #9e9e9e',
               fontWeight: 400,
               fontSize: '0.9rem',
-              backgroundColor: selectedSlot === index ? '#2196f3' : 'transparent',
+              backgroundColor: selectedSlot === index ? '#2C9EF4' : 'transparent',
               color: selectedSlot === index ? 'white' : 'inherit',
             }}
           >
@@ -266,9 +266,9 @@ const TimeTable = () => {
               minHeight: '150px',
               backgroundColor:
                 selectedSlot === index
-                  ? '#2196f3'
+                  ? '#2C9EF4'
                   : data.isHighlighted
-                    ? '#2196f3'
+                    ? '#2C9EF4'
                     : data.isLunch
                       ? '#bbdefb'
                       : 'transparent',
@@ -320,8 +320,8 @@ const TimeTable = () => {
                   variant="contained"
                   size="small"
                   sx={{
-                    backgroundColor: selectedSlot === index || data.isHighlighted ? 'white' : '#2196f3',
-                    color: selectedSlot === index || data.isHighlighted ? '#2196f3' : 'white',
+                    backgroundColor: selectedSlot === index || data.isHighlighted ? 'white' : '#2C9EF4',
+                    color: selectedSlot === index || data.isHighlighted ? '#2C9EF4' : 'white',
                     border: 'none',
                     borderRadius: '4px',
                     py: 0.5,
@@ -372,7 +372,7 @@ const TimeTable = () => {
               borderBottom: selectedSlot === index ? 'none' : '1px solid #9e9e9e',
               fontWeight: 400,
               fontSize: '0.95rem',
-              backgroundColor: selectedSlot === index ? '#2196f3' : 'transparent',
+              backgroundColor: selectedSlot === index ? '#2C9EF4' : 'transparent',
               color: selectedSlot === index ? 'white' : 'inherit',
             }}
           >
@@ -394,9 +394,9 @@ const TimeTable = () => {
               minHeight: '180px',
               backgroundColor:
                 selectedSlot === index
-                  ? '#2196f3'
+                  ? '#2C9EF4'
                   : data.isHighlighted
-                    ? '#2196f3'
+                    ? '#2C9EF4'
                     : data.isLunch
                       ? '#bbdefb'
                       : 'transparent',
@@ -443,8 +443,8 @@ const TimeTable = () => {
                 <Button
                   variant="contained"
                   sx={{
-                    backgroundColor: selectedSlot === index || data.isHighlighted ? 'white' : '#2196f3',
-                    color: selectedSlot === index || data.isHighlighted ? '#2196f3' : 'white',
+                    backgroundColor: selectedSlot === index || data.isHighlighted ? 'white' : '#2C9EF4',
+                    color: selectedSlot === index || data.isHighlighted ? '#2C9EF4' : 'white',
                     border: 'none',
                     borderRadius: '4px',
                     py: 1,

@@ -29,7 +29,7 @@ const FeesManagement = () => {
             class: "1st",
             paymentType: "Partial Payment",
             amount: "+ ₹45000",
-            color: "#4caf50", // green
+            color: "#2DB500", // green
         },
         {
             id: 2,
@@ -37,7 +37,7 @@ const FeesManagement = () => {
             class: "2st",
             paymentType: "Full Fee Payment",
             amount: "+ ₹90000",
-            color: "#4caf50", // green
+            color: "#2DB500", // green
         },
         {
             id: 3,
@@ -45,7 +45,7 @@ const FeesManagement = () => {
             class: "1st",
             paymentType: "Fee Penalty",
             amount: "+ ₹5000",
-            color: "#f44336", // red
+            color: "#EB2E2E", // red
         },
         {
             id: 4,
@@ -53,7 +53,7 @@ const FeesManagement = () => {
             class: "1st",
             paymentType: "Partial Payment",
             amount: "+ ₹45000",
-            color: "#4caf50", // green
+            color: "#2DB500", // green
         },
         {
             id: 5,
@@ -61,7 +61,7 @@ const FeesManagement = () => {
             class: "1st",
             paymentType: "Partial Payment",
             amount: "+ ₹45000",
-            color: "#4caf50", // green
+            color: "#2DB500", // green
         },
         {
             id: 6,
@@ -69,7 +69,7 @@ const FeesManagement = () => {
             class: "1st",
             paymentType: "Partial Payment",
             amount: "+ ₹45000",
-            color: "#4caf50", // green
+            color: "#2DB500", // green
         },
         {
             id: 7,
@@ -77,7 +77,7 @@ const FeesManagement = () => {
             class: "1st",
             paymentType: "Partial Payment",
             amount: "+ ₹45000",
-            color: "#4caf50", // green
+            color: "#2DB500", // green
         },
         {
             id: 8,
@@ -85,7 +85,7 @@ const FeesManagement = () => {
             class: "1st",
             paymentType: "Partial Payment",
             amount: "+ ₹45000",
-            color: "#4caf50", // green
+            color: "#2DB500", // green
         },
     ]
 

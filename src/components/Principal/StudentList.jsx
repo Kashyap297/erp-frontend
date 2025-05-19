@@ -372,7 +372,7 @@ const StudentList = () => {
                     p: 0,
                     outline: 'none',
                     overflow: 'hidden',
-                    border: '1px solid #2196f3'
+                    border: '1px solid #2C9EF4'
                 }}>
                     {selectedStudent && (
                         <>
@@ -497,10 +497,10 @@ const StudentList = () => {
                                                 minWidth: 100,
                                             },
                                             '& .Mui-selected': {
-                                                color: '#2196f3',
+                                                color: '#2C9EF4',
                                             },
                                             '& .MuiTabs-indicator': {
-                                                backgroundColor: '#2196f3',
+                                                backgroundColor: '#2C9EF4',
                                             },
                                         }}
                                     >

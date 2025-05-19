@@ -222,7 +222,7 @@ const ResultUpload = () => {
                         onClick={handleSubmit}
                         fullWidth={isMobile}
                         sx={{
-                            bgcolor: "#2196f3",
+                            bgcolor: "#2C9EF4",
                             color: "white",
                             "&:hover": {
                                 bgcolor: "#1976d2",
