@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Box, useMediaQuery, useTheme } from '@mui/material';
+import { Outlet } from 'react-router-dom'; // ✅ Import this
 import Sidebar from './Sidebar';
 import AppBarComponent from './AppBarComponent';
 
-const AppLayout = ({ children }) => {
+const AppLayout = () => {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('md'));
     const [mobileOpen, setMobileOpen] = useState(false);
@@ -32,7 +33,7 @@ const AppLayout = ({ children }) => {
                 />
                 <Box sx={{ p: { xs: 1, sm: 2, md: 3 } }}>
                     <Box sx={{ ...theme.mixins.toolbar }} />
-                    {children}
+                    <Outlet /> {/* ✅ This is where child routes render */}
                 </Box>
             </Box>
         </Box>
