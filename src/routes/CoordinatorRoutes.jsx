@@ -29,7 +29,7 @@ const CoordinatorRoutes = () => {
 
 
       
-      {/* <Route path="/update-attendance" element={<FinanceDashboard />} /> */}
+      <Route path="/update-attendance" element={<FinanceDashboard />} />
       <Route path="/remark" element={<RemarkForm />} />
       <Route path="/support" element={<ChatInterface />} />
     </Routes>
