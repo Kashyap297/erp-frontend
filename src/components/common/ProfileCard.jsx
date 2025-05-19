@@ -1,4 +1,3 @@
-"use client"
 
 import { Box, Typography, LinearProgress, CircularProgress } from "@mui/material"
 import { styled } from "@mui/material/styles"
@@ -134,7 +133,7 @@ export default function ProfileCard({ data }) {
             gap: 2,
           }}
         >
-          <Typography variant="body2" sx={{ minWidth: 140 }}>
+          <Typography variant="body2" sx={{ minWidth: 80 }}>
             Annual Leave Balance
           </Typography>
           <StyledLinearProgress variant="determinate" value={data.leaveBalance.annual} sx={{ flex: 1 }} />
@@ -147,7 +146,7 @@ export default function ProfileCard({ data }) {
             gap: 2,
           }}
         >
-          <Typography variant="body2" sx={{ minWidth: 140 }}>
+          <Typography variant="body2" sx={{ minWidth: 80 }}>
             Sick Leave Balance
           </Typography>
           <StyledLinearProgress variant="determinate" value={data.leaveBalance.sick} sx={{ flex: 1 }} />
@@ -159,7 +158,7 @@ export default function ProfileCard({ data }) {
             gap: 2,
           }}
         >
-          <Typography variant="body2" sx={{ minWidth: 140 }}>
+          <Typography variant="body2" sx={{ minWidth: 80 }}>
             Paid Leave Balance
           </Typography>
           <StyledLinearProgress variant="determinate" value={data.leaveBalance.paid} sx={{ flex: 1 }} />

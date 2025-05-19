@@ -62,7 +62,7 @@ const AdmissionDashboard = () => {
     ];
 
     return (
-        <Box sx={{ p: 0 }}>
+        <Box sx={{ p: 4 , mt :2 }}>
             <Box>
                 <ProfileCard data={Data} />
                 <Divider />
