@@ -152,9 +152,7 @@ const LeaveApproval = () => {
     })
 
     return (
-        <Box sx={{ width: "100%", mt: 2 }}>
-            <Divider sx={{ mb: 3 }} />
-
+        <Box sx={{ width: "100%" }}>
             <Box sx={{ display: "flex", gap: 2, mb: 4, flexWrap: "wrap" }}>
                 <TextField
                     placeholder="Search"

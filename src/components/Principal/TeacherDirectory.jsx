@@ -41,7 +41,7 @@ const TeacherDirectory = () => {
     }
 
     return (
-        <Box sx={{ width: "100%", p: 2 }}>
+        <Box sx={{ width: "100%" }}>
             {/* Search and Filter Row */}
             <Box sx={{ display: "flex", gap: 2, mb: 3 }}>
                 {/* Search Field */}

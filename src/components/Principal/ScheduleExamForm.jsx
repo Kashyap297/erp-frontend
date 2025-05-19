@@ -295,7 +295,7 @@ const ScheduleExamForm = () => {
     )
 
     return (
-        <Box sx={{ width: "100%", p: 2 }}>
+        <Box sx={{ width: "100%" }}>
             <Box component="form" onSubmit={handleSubmit}>
                 {/* Render all time slots */}
                 {timeSlots.map((timeSlot, index) => renderTimeSlot(timeSlot, index))}

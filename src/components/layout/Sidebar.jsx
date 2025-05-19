@@ -179,7 +179,9 @@ const Sidebar = ({ mobileOpen, handleDrawerToggle, isMobile }) => {
                         <StyledNavLink
                             to={item.path}
                             key={index}
-                            className={({ isActive }) => isActive ? 'active' : ''}
+                            end={item.path.endsWith('/teacher') || item.path.endsWith('/principal') ||
+                                item.path.endsWith('/finance') || item.path.endsWith('/coordinator') ||
+                                item.path.endsWith('/admission')}
                             onClick={isMobile ? handleDrawerToggle : undefined}
                         >
                             <ListItem>

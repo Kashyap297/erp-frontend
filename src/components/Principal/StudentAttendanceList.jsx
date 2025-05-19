@@ -68,7 +68,7 @@ const StudentAttendanceList = () => {
     }
 
     return (
-        <Box sx={{ width: "100%", p: 4 }}>
+        <Box sx={{ width: "100%" }}>
             {/* Search and Filter Row */}
             <Box sx={{ display: "flex", gap: 2, mb: 3 }}>
                 {/* Search Field */}

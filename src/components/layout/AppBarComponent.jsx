@@ -7,63 +7,63 @@ import { useLocation } from 'react-router-dom';
 const createTitleMap = () => {
     const roleMenus = {
         teacher: [
-            { path: '/dashboard', text: 'Dashboard' },
-            { path: '/student-attendance', text: 'Student Attendance' },
-            { path: '/attendance-status', text: 'Attendance Status' },
-            { path: '/homework', text: 'Homework' },
-            { path: '/timetable', text: 'Time Table' },
-            { path: '/result', text: 'Result' },
-            { path: '/notice', text: 'Notice' },
-            { path: '/salary', text: 'Salary' },
-            { path: '/leave', text: 'Leave' },
-            { path: '/remark', text: 'Remark' },
-            { path: '/support', text: 'Support' },
+            { path: '/teacher', text: 'Dashboard' },
+            { path: '/teacher/student-attendance', text: 'Student Attendance' },
+            { path: '/teacher/attendance-status', text: 'Attendance Status' },
+            { path: '/teacher/homework', text: 'Homework' },
+            { path: '/teacher/timetable', text: 'Time Table' },
+            { path: '/teacher/result', text: 'Result' },
+            { path: '/teacher/notice', text: 'Notice' },
+            { path: '/teacher/salary', text: 'Salary' },
+            { path: '/teacher/leave', text: 'Leave' },
+            { path: '/teacher/remark', text: 'Remark' },
+            { path: '/teacher/support', text: 'Support' },
         ],
         principal: [
-            { path: '/', text: 'Dashboard' },
-            { path: '/student-search', text: 'Student Search' },
-            { path: '/attendance-status', text: 'Attendance Status' },
-            { path: '/leave-approval', text: 'Leave Approval' },
-            { path: '/teacher-status', text: 'Teacher Status' },
-            { path: '/schedule-event', text: 'Schedule Event' },
-            { path: '/schedule-exam', text: 'Schedule Exam' },
-            { path: '/remark', text: 'Remark' },
-            { path: '/support', text: 'Support' },
+            { path: '/principal', text: 'Dashboard' },
+            { path: '/principal/student-search', text: 'Student Search' },
+            { path: '/principal/attendance-status', text: 'Attendance Status' },
+            { path: '/principal/leave-approval', text: 'Leave Approval' },
+            { path: '/principal/teacher-status', text: 'Teacher Status' },
+            { path: '/principal/schedule-event', text: 'Schedule Event' },
+            { path: '/principal/schedule-exam', text: 'Schedule Exam' },
+            { path: '/principal/remark', text: 'Remark' },
+            { path: '/principal/support', text: 'Support' },
         ],
         finance: [
-            { path: '/', text: 'Dashboard' },
-            { path: '/fees-management', text: 'Fees Management' },
-            { path: '/student-fees', text: 'Student Fees' },
-            { path: '/fees-structure', text: 'Fees Structure' },
-            { path: '/late-fees', text: 'Fine & Late Fees' },
-            { path: '/payment-tracking', text: 'Payment Tracking' },
-            { path: '/receipt-generation', text: 'Receipt Generation' },
-            { path: '/offline-verification', text: 'Offline Verification' },
-            { path: '/remark', text: 'Remark' },
-            { path: '/support', text: 'Support' },
+            { path: '/finance', text: 'Dashboard' },
+            { path: '/finance/fees-management', text: 'Fees Management' },
+            { path: '/finance/student-fees', text: 'Student Fees' },
+            { path: '/finance/fees-structure', text: 'Fees Structure' },
+            { path: '/finance/late-fees', text: 'Fine & Late Fees' },
+            { path: '/finance/payment-tracking', text: 'Payment Tracking' },
+            { path: '/finance/receipt-generation', text: 'Receipt Generation' },
+            { path: '/finance/fees-verification', text: 'Offline Fees Verification' },
+            { path: '/finance/remark', text: 'Remark' },
+            { path: '/finance/support', text: 'Support' },
         ],
         coordinator: [
-            { path: '/', text: 'Dashboard' },
-            { path: '/timetable', text: 'Timetable Scheduling' },
-            { path: '/schedule-event', text: 'Schedule Event' },
-            { path: '/assign-class', text: 'Assign Class' },
-            { path: '/leave-approval', text: 'Leave Approval' },
-            { path: '/notices', text: 'Notice Board' },
-            { path: '/salary', text: 'Salary' },
-            { path: '/student-data', text: 'Student Data' },
-            { path: '/update-attendance', text: 'Update Attendance' },
-            { path: '/remark', text: 'Remark' },
-            { path: '/support', text: 'Support' },
+            { path: '/coordinator', text: 'Dashboard' },
+            { path: '/coordinator/timetable', text: 'Timetable Scheduling' },
+            { path: '/coordinator/schedule-event', text: 'Schedule Event' },
+            { path: '/coordinator/assign-class', text: 'Assign Class' },
+            { path: '/coordinator/leave-approval', text: 'Leave Approval' },
+            { path: '/coordinator/notices', text: 'Notice Board' },
+            { path: '/coordinator/salary', text: 'Salary' },
+            { path: '/coordinator/student-data', text: 'Student Data' },
+            { path: '/coordinator/update-attendance', text: 'Update Attendance' },
+            { path: '/coordinator/remark', text: 'Remark' },
+            { path: '/coordinator/support', text: 'Support' },
         ],
         admission: [
-            { path: '/', text: 'Dashboard' },
-            { path: '/student-registration', text: 'Student Registration' },
-            { path: '/teacher-registration', text: 'Teacher Registration' },
-            { path: '/tc-upload', text: 'TC Upload' },
-            { path: '/edit-record', text: 'Edit Record' },
-            { path: '/student-data', text: 'Student Data' },
-            { path: '/salary', text: 'Salary' },
-            { path: '/support', text: 'Support' },
+            { path: '/admission', text: 'Dashboard' },
+            { path: '/admission/student-registration', text: 'Student Registration' },
+            { path: '/admission/teacher-registration', text: 'Teacher Registration' },
+            { path: '/admission/tc-upload', text: 'TC Upload' },
+            { path: '/admission/edit-record', text: 'Edit Record' },
+            { path: '/admission/student-data', text: 'Student Data' },
+            { path: '/admission/salary', text: 'Salary' },
+            { path: '/admission/support', text: 'Support' },
         ],
     };
 
@@ -80,6 +80,26 @@ const createTitleMap = () => {
 const AppBarComponent = ({ handleDrawerToggle, isMobile }) => {
     const location = useLocation();
     const titleMap = createTitleMap();
+
+    // Function to find the best matching title for the current path
+    const getTitle = () => {
+        // First try exact match
+        if (titleMap[location.pathname]) {
+            return titleMap[location.pathname];
+        }
+
+        // If no exact match, try to find the closest parent path
+        const pathParts = location.pathname.split('/').filter(Boolean);
+        while (pathParts.length > 0) {
+            const testPath = '/' + pathParts.join('/');
+            if (titleMap[testPath]) {
+                return titleMap[testPath];
+            }
+            pathParts.pop();
+        }
+
+        return 'Dashboard';
+    };
 
     return (
         <AppBar
@@ -104,7 +124,7 @@ const AppBarComponent = ({ handleDrawerToggle, isMobile }) => {
                         </IconButton>
                     )}
                     <Typography variant="h6" noWrap>
-                        {titleMap[location.pathname] || 'Dashboard'}
+                        {getTitle()}
                     </Typography>
                 </Box>
                 <IconButton>
