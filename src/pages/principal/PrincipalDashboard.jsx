@@ -85,7 +85,7 @@ const PrincipalDashboard = () => {
     }
 
     return (
-        <Box sx={{ width: "100%", p: 3 }}>
+        <Box sx={{ width: "100%" }}>
             {/* Profile Card Section */}
             <Box sx={{ mb: 4 }}>
                 <ProfileCard data={Data} />
@@ -96,11 +96,18 @@ const PrincipalDashboard = () => {
                     display: "flex",
                     justifyContent: "space-between",
                     mb: 4,
-                    flexWrap: { xs: "wrap", md: "nowrap" },
-                    gap: { xs: 3, md: 0 },
+                    flexDirection: { xs: "column", md: "row" },  // Stack vertically on mobile
+                    flexWrap: "wrap",
+                    gap: 3,  // Consistent gap between items
                 }}
             >
-                <Box sx={{ width: { xs: "100%", md: "30%" } }}>
+                {/* Fee Collection */}
+                <Box
+                    sx={{
+                        width: { xs: "100%", md: "30%" },
+                        order: 1  // Ensure consistent ordering
+                    }}
+                >
                     <Typography variant="body2" color="text.secondary" gutterBottom>
                         Fee Collection
                     </Typography>
@@ -109,9 +116,24 @@ const PrincipalDashboard = () => {
                     </Typography>
                 </Box>
 
-                <Divider orientation="vertical" flexItem sx={{ display: { xs: "none", md: "block" } }} />
+                {/* First Divider - only visible on desktop */}
+                <Divider
+                    orientation="vertical"
+                    flexItem
+                    sx={{
+                        display: { xs: "none", md: "block" },
+                        order: 2
+                    }}
+                />
 
-                <Box sx={{ width: { xs: "100%", md: "30%" }, textAlign: "center" }}>
+                {/* Student Enrollment */}
+                <Box
+                    sx={{
+                        width: { xs: "100%", md: "30%" },
+                        textAlign: { xs: "left", md: "center" },  // Left align on mobile
+                        order: 3
+                    }}
+                >
                     <Typography variant="body2" color="text.secondary" gutterBottom>
                         Student Enrollment
                     </Typography>
@@ -120,9 +142,24 @@ const PrincipalDashboard = () => {
                     </Typography>
                 </Box>
 
-                <Divider orientation="vertical" flexItem sx={{ display: { xs: "none", md: "block" } }} />
+                {/* Second Divider - only visible on desktop */}
+                <Divider
+                    orientation="vertical"
+                    flexItem
+                    sx={{
+                        display: { xs: "none", md: "block" },
+                        order: 4
+                    }}
+                />
 
-                <Box sx={{ width: { xs: "100%", md: "30%" }, textAlign: "right" }}>
+                {/* Teaching Staff */}
+                <Box
+                    sx={{
+                        width: { xs: "100%", md: "30%" },
+                        textAlign: { xs: "left", md: "right" },  // Left align on mobile
+                        order: 5
+                    }}
+                >
                     <Typography variant="body2" color="text.secondary" gutterBottom>
                         Teaching Staff
                     </Typography>
