@@ -1,12 +1,28 @@
 "use client"
 
 import { useState } from "react"
-import { Box, Typography, TextField, Button, MenuItem, Paper, IconButton } from "@mui/material"
+import {
+    Box,
+    Typography,
+    TextField,
+    Button,
+    MenuItem,
+    Paper,
+    IconButton,
+    Grid,
+    Container,
+    useTheme,
+    useMediaQuery
+} from "@mui/material"
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth"
 import FileUploadIcon from "@mui/icons-material/FileUpload"
 import { useNavigate } from "react-router-dom"
 
 const HomeworkCreationForm = () => {
+    const theme = useTheme()
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
+    const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'))
+
     const [formData, setFormData] = useState({
         class: "",
         section: "",
@@ -48,76 +64,120 @@ const HomeworkCreationForm = () => {
     }
 
     return (
-        <Box sx={{ width: "100%", p: 2 }}>
-            <Paper
-                elevation={0}
-                sx={{
-                    p: 3,
-                    border: "1px solid #e0e0e0",
-                    borderRadius: 2,
-                    position: "relative",
-                }}
-            >
-                {/* Calendar Icon */}
-                <IconButton
+        <Container maxWidth="" disableGutters>
+            <Box sx={{
+                width: "100%",
+                p: { xs: 1, sm: 1.5, md: 2 }
+            }}>
+                <Paper
+                    elevation={0}
                     sx={{
-                        position: "absolute",
-                        top: 10,
-                        right: 10,
+                        p: { xs: 2, sm: 2.5, md: 3 },
+                        border: "1px solid #e0e0e0",
+                        borderRadius: 2,
+                        position: "relative",
                     }}
                 >
-                    <CalendarMonthIcon />
-                </IconButton>
+                    {/* Calendar Icon */}
+                    <IconButton
+                        sx={{
+                            position: "absolute",
+                            top: { xs: 5, sm: 10 },
+                            right: { xs: 5, sm: 10 },
+                        }}
+                    >
+                        <CalendarMonthIcon />
+                    </IconButton>
 
-                <Box component="form" onSubmit={handleSubmit}>
-                    {/* Class and Section Row */}
-                    <Box sx={{ display: "flex", gap: 2, mb: 2 }}>
-                        <Box sx={{ flex: 1 }}>
-                            <Typography variant="body1" sx={{ mb: 1 }}>
-                                Class
-                            </Typography>
-                            <TextField
-                                select
-                                fullWidth
-                                name="class"
-                                value={formData.class}
-                                onChange={handleChange}
-                                placeholder="Class"
-                                sx={{
-                                    "& .MuiOutlinedInput-root": {
-                                        bgcolor: "#e0e0e0",
-                                        "& fieldset": {
-                                            borderColor: "transparent",
-                                        },
-                                    },
-                                }}
-                                SelectProps={{
-                                    displayEmpty: true,
-                                    renderValue: (value) => (value ? value : "Class"),
-                                }}
-                            >
-                                <MenuItem disabled value="">
+                    <Box component="form" onSubmit={handleSubmit}>
+                        {/* Class and Section Row */}
+                        <Grid container spacing={2} sx={{ mb: 2 }}>
+                            <Grid item xs={12} sm={6}>
+                                <Typography variant="body1" sx={{ mb: 1 }}>
                                     Class
-                                </MenuItem>
-                                {classes.map((option) => (
-                                    <MenuItem key={option} value={option}>
-                                        {option}
+                                </Typography>
+                                <TextField
+                                    select
+                                    fullWidth
+                                    name="class"
+                                    value={formData.class}
+                                    onChange={handleChange}
+                                    placeholder="Class"
+                                    size={isMobile ? "small" : "medium"}
+                                    sx={{
+                                        "& .MuiOutlinedInput-root": {
+                                            bgcolor: "#e0e0e0",
+                                            "& fieldset": {
+                                                borderColor: "transparent",
+                                            },
+                                        },
+                                    }}
+                                    SelectProps={{
+                                        displayEmpty: true,
+                                        renderValue: (value) => (value ? value : "Class"),
+                                    }}
+                                >
+                                    <MenuItem disabled value="">
+                                        Class
                                     </MenuItem>
-                                ))}
-                            </TextField>
-                        </Box>
+                                    {classes.map((option) => (
+                                        <MenuItem key={option} value={option}>
+                                            {option}
+                                        </MenuItem>
+                                    ))}
+                                </TextField>
+                            </Grid>
 
-                        <Box sx={{ flex: 1 }}>
+                            <Grid item xs={12} sm={6}>
+                                <Typography variant="body1" sx={{ mb: 1 }}>
+                                    Sec
+                                </Typography>
+                                <TextField
+                                    select
+                                    fullWidth
+                                    name="section"
+                                    value={formData.section}
+                                    onChange={handleChange}
+                                    placeholder="Sec"
+                                    size={isMobile ? "small" : "medium"}
+                                    sx={{
+                                        "& .MuiOutlinedInput-root": {
+                                            bgcolor: "#e0e0e0",
+                                            "& fieldset": {
+                                                borderColor: "transparent",
+                                            },
+                                        },
+                                    }}
+                                    SelectProps={{
+                                        displayEmpty: true,
+                                        renderValue: (value) => (value ? value : "Sec"),
+                                    }}
+                                >
+                                    <MenuItem disabled value="">
+                                        Sec
+                                    </MenuItem>
+                                    {sections.map((option) => (
+                                        <MenuItem key={option} value={option}>
+                                            {option}
+                                        </MenuItem>
+                                    ))}
+                                </TextField>
+                            </Grid>
+                        </Grid>
+
+                        {/* Subject */}
+                        <Box sx={{ mb: 2 }}>
                             <Typography variant="body1" sx={{ mb: 1 }}>
-                                Sec
+                                Subject
                             </Typography>
                             <TextField
                                 select
                                 fullWidth
-                                name="section"
-                                value={formData.section}
+                                name="subject"
+                                value={formData.subject}
                                 onChange={handleChange}
-                                placeholder="Sec"
+                                placeholder="Subject"
+                                size={isMobile ? "small" : "medium"}
                                 sx={{
                                     "& .MuiOutlinedInput-root": {
                                         bgcolor: "#e0e0e0",
@@ -128,148 +188,121 @@ const HomeworkCreationForm = () => {
                                 }}
                                 SelectProps={{
                                     displayEmpty: true,
-                                    renderValue: (value) => (value ? value : "Sec"),
+                                    renderValue: (value) => (value ? value : "Subject"),
                                 }}
                             >
                                 <MenuItem disabled value="">
-                                    Sec
+                                    Subject
                                 </MenuItem>
-                                {sections.map((option) => (
+                                {subjects.map((option) => (
                                     <MenuItem key={option} value={option}>
                                         {option}
                                     </MenuItem>
                                 ))}
                             </TextField>
                         </Box>
-                    </Box>
 
-                    {/* Subject */}
-                    <Box sx={{ mb: 2 }}>
-                        <Typography variant="body1" sx={{ mb: 1 }}>
-                            Subject
-                        </Typography>
-                        <TextField
-                            select
-                            fullWidth
-                            name="subject"
-                            value={formData.subject}
-                            onChange={handleChange}
-                            placeholder="Subject"
-                            sx={{
-                                "& .MuiOutlinedInput-root": {
-                                    bgcolor: "#e0e0e0",
-                                    "& fieldset": {
-                                        borderColor: "transparent",
+                        {/* Title */}
+                        <Box sx={{ mb: 2 }}>
+                            <Typography variant="body1" sx={{ mb: 1 }}>
+                                Title
+                            </Typography>
+                            <TextField
+                                fullWidth
+                                name="title"
+                                value={formData.title}
+                                onChange={handleChange}
+                                placeholder="Title"
+                                size={isMobile ? "small" : "medium"}
+                                sx={{
+                                    "& .MuiOutlinedInput-root": {
+                                        bgcolor: "#e0e0e0",
+                                        "& fieldset": {
+                                            borderColor: "transparent",
+                                        },
                                     },
-                                },
-                            }}
-                            SelectProps={{
-                                displayEmpty: true,
-                                renderValue: (value) => (value ? value : "Subject"),
-                            }}
-                        >
-                            <MenuItem disabled value="">
-                                Subject
-                            </MenuItem>
-                            {subjects.map((option) => (
-                                <MenuItem key={option} value={option}>
-                                    {option}
-                                </MenuItem>
-                            ))}
-                        </TextField>
-                    </Box>
+                                }}
+                            />
+                        </Box>
 
-                    {/* Title */}
-                    <Box sx={{ mb: 2 }}>
-                        <Typography variant="body1" sx={{ mb: 1 }}>
-                            Tittle
-                        </Typography>
-                        <TextField
-                            fullWidth
-                            name="title"
-                            value={formData.title}
-                            onChange={handleChange}
-                            placeholder="Tittle"
-                            sx={{
-                                "& .MuiOutlinedInput-root": {
-                                    bgcolor: "#e0e0e0",
-                                    "& fieldset": {
-                                        borderColor: "transparent",
+                        {/* Description */}
+                        <Box sx={{ mb: 2 }}>
+                            <Typography variant="body1" sx={{ mb: 1 }}>
+                                Description
+                            </Typography>
+                            <TextField
+                                fullWidth
+                                multiline
+                                rows={isMobile ? 4 : 5}
+                                name="description"
+                                value={formData.description}
+                                onChange={handleChange}
+                                placeholder="Description"
+                                size={isMobile ? "small" : "medium"}
+                                sx={{
+                                    "& .MuiOutlinedInput-root": {
+                                        bgcolor: "#e0e0e0",
+                                        "& fieldset": {
+                                            borderColor: "transparent",
+                                        },
                                     },
-                                },
-                            }}
-                        />
-                    </Box>
+                                }}
+                            />
+                        </Box>
 
-                    {/* Description */}
-                    <Box sx={{ mb: 2 }}>
-                        <Typography variant="body1" sx={{ mb: 1 }}>
-                            Description
-                        </Typography>
-                        <TextField
-                            fullWidth
-                            multiline
-                            rows={5}
-                            name="description"
-                            value={formData.description}
-                            onChange={handleChange}
-                            placeholder="Description"
-                            sx={{
-                                "& .MuiOutlinedInput-root": {
-                                    bgcolor: "#e0e0e0",
-                                    "& fieldset": {
+                        {/* File Upload and Submit Button */}
+                        <Grid container spacing={2} alignItems="center">
+                            <Grid item xs={12} sm={6}>
+                                <Button
+                                    component="label"
+                                    variant="outlined"
+                                    fullWidth={isMobile}
+                                    startIcon={<FileUploadIcon />}
+                                    size={isMobile ? "small" : "medium"}
+                                    sx={{
+                                        bgcolor: "#e0e0e0",
+                                        color: "text.primary",
                                         borderColor: "transparent",
-                                    },
-                                },
-                            }}
-                        />
-                    </Box>
+                                        "&:hover": {
+                                            bgcolor: "#d5d5d5",
+                                            borderColor: "transparent",
+                                        },
+                                        textTransform: "none",
+                                        mb: { xs: 2, sm: 0 }
+                                    }}
+                                >
+                                    Upload file
+                                    <input type="file" hidden onChange={handleFileChange} />
+                                </Button>
+                            </Grid>
 
-                    {/* File Upload */}
-                    <Box sx={{ mb: 3 }}>
-                        <Button
-                            component="label"
-                            variant="outlined"
-                            startIcon={<FileUploadIcon />}
-                            sx={{
-                                bgcolor: "#e0e0e0",
-                                color: "text.primary",
-                                borderColor: "transparent",
-                                "&:hover": {
-                                    bgcolor: "#d5d5d5",
-                                    borderColor: "transparent",
-                                },
-                                textTransform: "none",
-                            }}
-                        >
-                            Upload file
-                            <input type="file" hidden onChange={handleFileChange} />
-                        </Button>
+                            <Grid item xs={12} sm={6} sx={{ textAlign: { xs: 'center', sm: 'right' } }}>
+                                <Button
+                                    type="submit"
+                                    variant="contained"
+                                    fullWidth={isMobile}
+                                    size={isMobile ? "medium" : "large"}
+                                    sx={{
+                                        bgcolor: "#2196f3",
+                                        color: "white",
+                                        "&:hover": {
+                                            bgcolor: "#1976d2",
+                                        },
+                                        borderRadius: 4,
+                                        px: { xs: 2, sm: 3 },
+                                        py: { xs: 0.5, sm: 0.75 },
+                                        textTransform: "none",
+                                        maxWidth: { xs: '100%', sm: '200px' }
+                                    }}
+                                >
+                                    Submit
+                                </Button>
+                            </Grid>
+                        </Grid>
                     </Box>
-
-                    {/* Submit Button */}
-                    <Box>
-                        <Button
-                            type="submit"
-                            variant="contained"
-                            sx={{
-                                bgcolor: "#2196f3",
-                                color: "white",
-                                "&:hover": {
-                                    bgcolor: "#1976d2",
-                                },
-                                borderRadius: 4,
-                                px: 3,
-                                py: 0.75,
-                                textTransform: "none",
-                            }}
-                        >
-                            Submit
-                        </Button>
-                    </Box>
-                </Box>
-            </Paper>
-        </Box>
+                </Paper>
+            </Box>
+        </Container>
     )
 }
 

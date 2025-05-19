@@ -34,7 +34,7 @@ export default function LeaveApplication() {
   return (
     <Container maxWidth="" sx={{ py: 2, px: { xs: 1, sm: 2 } }}>
       <Paper elevation={0} sx={{ width: "100%", p: 0 }}>
-        <Box sx={{ p: 3 }}>
+        <Box sx={{ }}>
           {/* Leave Balance Section */}
           <Box
             sx={{

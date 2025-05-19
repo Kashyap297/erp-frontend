@@ -10,6 +10,13 @@ import {
   TableHead,
   TableRow,
   Paper,
+  useMediaQuery,
+  useTheme,
+  Card,
+  CardContent,
+  Grid,
+  Divider,
+  Stack,
 } from "@mui/material"
 
 const AttendanceMarking = () => {
@@ -144,6 +151,9 @@ const AttendanceMarking = () => {
   ]
 
   const [students, setStudents] = useState(initialStudents)
+  const theme = useTheme()
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"))
+  const isTablet = useMediaQuery(theme.breakpoints.between("sm", "md"))
 
   // Mark student as present or absent
   const markAttendance = (id, status) => {
@@ -173,101 +183,180 @@ const AttendanceMarking = () => {
     alert("Attendance submitted successfully!")
   }
 
+  // Render attendance history dots
+  const renderHistoryDots = (history) => (
+    <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap" }}>
+      {history.map((status, index) => (
+        <Box
+          key={index}
+          sx={{
+            width: 20,
+            height: 20,
+            borderRadius: "50%",
+            bgcolor: status === "present" ? "#1CA401" : status === "absent" ? "#D80303" : "#bdbdbd",
+          }}
+        />
+      ))}
+    </Box>
+  )
+
+  // Render attendance buttons
+  const renderAttendanceButtons = (student) => (
+    <Box sx={{ display: "flex", gap: 1, flexDirection: isMobile ? "column" : "row", width: isMobile ? "100%" : "auto" }}>
+      <Button
+        variant={student.isPresent === true ? "contained" : "outlined"}
+        color="success"
+        size={isMobile ? "medium" : "small"}
+        onClick={() => markAttendance(student.id, true)}
+        fullWidth={isMobile}
+        sx={{
+          borderRadius: "5px",
+          textTransform: "none",
+          minWidth: isMobile ? "100%" : 100,
+          bgcolor: student.isPresent === true ? "#1CA401" : "transparent",
+          color: student.isPresent === true ? "white" : "#4caf50",
+          borderColor: "#1CA401",
+        }}
+      >
+        Present
+      </Button>
+      <Button
+        variant={student.isPresent === false ? "contained" : "outlined"}
+        color="error"
+        size={isMobile ? "medium" : "small"}
+        onClick={() => markAttendance(student.id, false)}
+        fullWidth={isMobile}
+        sx={{
+          borderRadius: "5px",
+          textTransform: "none",
+          minWidth: isMobile ? "100%" : 100,
+          bgcolor: student.isPresent === false ? "#D80303" : "transparent",
+          color: student.isPresent === false ? "white" : "#f44336",
+          borderColor: "#f44336",
+        }}
+      >
+        Absent
+      </Button>
+    </Box>
+  )
+
+  // Mobile view - card layout
+  const renderMobileView = () => (
+    <Stack spacing={2}>
+      {students.map((student) => (
+        <Card key={student.id} elevation={1} sx={{ borderRadius: 1 }}>
+          <CardContent>
+            <Grid container spacing={1}>
+              <Grid item xs={6}>
+                <Typography variant="subtitle2" fontWeight="bold">
+                  Roll No.
+                </Typography>
+                <Typography variant="body2">{student.rollNo}</Typography>
+              </Grid>
+              <Grid item xs={6}>
+                <Typography variant="subtitle2" fontWeight="bold">
+                  Student Name
+                </Typography>
+                <Typography variant="body2">{student.name}</Typography>
+              </Grid>
+              <Grid item xs={12} sx={{ mt: 1 }}>
+                <Typography variant="subtitle2" fontWeight="bold" sx={{ mb: 1 }}>
+                  Attendance
+                </Typography>
+                {renderAttendanceButtons(student)}
+              </Grid>
+              <Grid item xs={12} sx={{ mt: 1 }}>
+                <Typography variant="subtitle2" fontWeight="bold" sx={{ mb: 1 }}>
+                  History (Last Week)
+                </Typography>
+                {renderHistoryDots(student.history)}
+              </Grid>
+            </Grid>
+          </CardContent>
+        </Card>
+      ))}
+    </Stack>
+  )
+
+  // Tablet/Desktop view - table layout
+  const renderTableView = () => (
+    <TableContainer component={Paper} elevation={0} sx={{ borderRadius: 1 }}>
+      <Table sx={{ minWidth: isTablet ? 500 : 650 }}>
+        <TableHead>
+          <TableRow>
+            <TableCell sx={{ fontWeight: "bold", width: isTablet ? "15%" : "10%" }}>Roll No.</TableCell>
+            <TableCell sx={{ fontWeight: "bold", width: isTablet ? "20%" : "25%" }}>Student Name</TableCell>
+            <TableCell sx={{ fontWeight: "bold", width: isTablet ? "35%" : "35%" }}>Attendance</TableCell>
+            <TableCell sx={{ fontWeight: "bold", width: isTablet ? "30%" : "30%" }}>History (Last Week)</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {students.map((student) => (
+            <TableRow key={student.id}>
+              <TableCell sx={{ borderBottom: "none" }}>{student.rollNo}</TableCell>
+              <TableCell sx={{ borderBottom: "none" }}>{student.name}</TableCell>
+              <TableCell sx={{ borderBottom: "none" }}>{renderAttendanceButtons(student)}</TableCell>
+              <TableCell sx={{ borderBottom: "none" }}>{renderHistoryDots(student.history)}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
+  )
+
   return (
-    <Box sx={{ width: "100%", mt: 0, px: 2 }}>
-      <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: 3 }}>
-        <Typography variant="h5" component="h1" fontWeight="medium">
+    <Box sx={{ width: "100%", mt: 0, px: { xs: 1, sm: 2, md: 3 } }}>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: { xs: "column", sm: "row" },
+          justifyContent: "space-between",
+          alignItems: { xs: "flex-start", sm: "center" },
+          mb: 3,
+          gap: { xs: 2, sm: 0 },
+        }}
+      >
+        <Typography variant="h5" component="h1" fontWeight="medium" sx={{ mb: { xs: 1, sm: 0 } }}>
           Today's Attendance: Class 8A
         </Typography>
-        <Box sx={{ display: "flex", gap: 2 }}>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: { xs: "column", sm: "row" },
+            gap: 2,
+            width: { xs: "100%", sm: "auto" },
+          }}
+        >
           <Button
             variant="contained"
             onClick={markAllPresent}
-            sx={{ textTransform: "none", borderRadius: "5px", background: "#1CA401" }}
+            fullWidth={isMobile}
+            sx={{
+              textTransform: "none",
+              borderRadius: "5px",
+              background: "#1CA401",
+              "&:hover": { background: "#168c01" },
+            }}
           >
             Mark all present
           </Button>
           <Button
             variant="contained"
             onClick={submitAttendance}
-            sx={{ textTransform: "none", borderRadius: "5px", background: "#1399FF" }}
+            fullWidth={isMobile}
+            sx={{
+              textTransform: "none",
+              borderRadius: "5px",
+              background: "#1399FF",
+              "&:hover": { background: "#0f7fd8" },
+            }}
           >
             Submit
           </Button>
         </Box>
       </Box>
 
-      <TableContainer component={Paper} elevation={0} sx={{ borderRadius: 1 }}>
-        <Table sx={{ minWidth: 650 }}>
-          <TableHead>
-            <TableRow>
-              <TableCell sx={{ fontWeight: "bold", width: "10%" }}>Roll No.</TableCell>
-              <TableCell sx={{ fontWeight: "bold", width: "25%" }}>Student Name</TableCell>
-              <TableCell sx={{ fontWeight: "bold", width: "35%" }}>Attendance</TableCell>
-              <TableCell sx={{ fontWeight: "bold", width: "30%" }}>History (Last Week)</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {students.map((student) => (
-              <TableRow key={student.id}>
-                <TableCell sx={{ borderBottom: "none" }}>{student.rollNo}</TableCell>
-                <TableCell sx={{ borderBottom: "none" }}>{student.name}</TableCell>
-                <TableCell sx={{ borderBottom: "none" }}>
-                  <Box sx={{ display: "flex", gap: 1 }}>
-                    <Button
-                      variant={student.isPresent === true ? "contained" : "outlined"}
-                      color="success"
-                      size="small"
-                      onClick={() => markAttendance(student.id, true)}
-                      sx={{
-                        borderRadius: "5px",
-                        textTransform: "none",
-                        minWidth: 100,
-                        bgcolor: student.isPresent === true ? "#1CA401" : "transparent",
-                        color: student.isPresent === true ? "white" : "#4caf50",
-                        borderColor: "#1CA401",
-                      }}
-                    >
-                      Present
-                    </Button>
-                    <Button
-                      variant={student.isPresent === false ? "contained" : "outlined"}
-                      color="error"
-                      size="small"
-                      onClick={() => markAttendance(student.id, false)}
-                      sx={{
-                        borderRadius: "5px",
-                        textTransform: "none",
-                        minWidth: 100,
-                        bgcolor: student.isPresent === false ? "#D80303" : "transparent",
-                        color: student.isPresent === false ? "white" : "#f44336",
-                        borderColor: "#f44336",
-                      }}
-                    >
-                      Absent
-                    </Button>
-                  </Box>
-                </TableCell>
-                <TableCell sx={{ borderBottom: "none" }}>
-                  <Box sx={{ display: "flex", gap: 1 }}>
-                    {student.history.map((status, index) => (
-                      <Box
-                        key={index}
-                        sx={{
-                          width: 20,
-                          height: 20,
-                          borderRadius: "50%",
-                          bgcolor: status === "present" ? "#1CA401" : status === "absent" ? "#D80303" : "#bdbdbd",
-                        }}
-                      />
-                    ))}
-                  </Box>
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
+      {isMobile ? renderMobileView() : renderTableView()}
     </Box>
   )
 }

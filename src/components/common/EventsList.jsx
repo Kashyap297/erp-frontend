@@ -21,7 +21,7 @@ const EventsList = () => {
     ]
 
     return (
-        <Box sx={{ width: "100%", maxWidth: "100%", py: 2, p: 4 }}>
+        <Box sx={{ width: "100%", maxWidth: "100%" }}>
             <List sx={{ p: 0 }}>
                 {events.map((event) => (
                     <ListItem
