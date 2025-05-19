@@ -639,7 +639,7 @@ const StudentManagement = () => {
                 variant="contained"
                 onClick={handleAccept}
                 sx={{
-                  bgcolor: "#4caf50",
+                  bgcolor: "#23D000",
                   color: "white",
                   textTransform: "none",
                   borderRadius: "4px",
@@ -657,7 +657,7 @@ const StudentManagement = () => {
                 variant="contained"
                 onClick={handleReject}
                 sx={{
-                  bgcolor: "#f44336",
+                  bgcolor: "#D80303",
                   color: "white",
                   textTransform: "none",
                   borderRadius: "4px",
