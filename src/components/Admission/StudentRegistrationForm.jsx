@@ -85,7 +85,7 @@ const StudentRegistrationForm = () => {
                             bgcolor: "#0095ff",
                             "&:hover": { bgcolor: "#0077cc" },
                             textTransform: "none",
-                            borderRadius: "4px",
+                            borderRadius: "10px",
                             px: 2,
                         }}
                     >
@@ -102,14 +102,14 @@ const StudentRegistrationForm = () => {
                             color: "white",
                             p: 1,
                             fontWeight: "bold",
-                            borderRadius: "4px",
+                            borderRadius: "10px",
                             mb: 2,
                         }}
                     >
                         PERSONAL DETAIL
                     </Typography>
 
-                    <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2 }}>
+                    <Box sx={{ display: "flex", flexWrap: "wrap", gap: 3 }}>
                         <Box sx={{ flex: "1 1 45%", minWidth: "250px" }}>
                             <Typography sx={{ mb: 0.5 }}>Name</Typography>
                             <TextField
@@ -122,7 +122,7 @@ const StudentRegistrationForm = () => {
                                 size="small"
                                 sx={{
                                     "& .MuiOutlinedInput-root": {
-                                        borderRadius: "4px",
+                                        borderRadius: "10px",
                                     },
                                 }}
                             />
@@ -143,7 +143,7 @@ const StudentRegistrationForm = () => {
                                 }}
                                 sx={{
                                     "& .MuiOutlinedInput-root": {
-                                        borderRadius: "4px",
+                                        borderRadius: "10px",
                                     },
                                 }}
                             />
@@ -158,7 +158,7 @@ const StudentRegistrationForm = () => {
                                     onChange={handleInputChange}
                                     displayEmpty
                                     sx={{
-                                        borderRadius: "4px",
+                                        borderRadius: "10px",
                                     }}
                                 >
                                     <MenuItem value="" disabled>
@@ -180,7 +180,7 @@ const StudentRegistrationForm = () => {
                                     onChange={handleInputChange}
                                     displayEmpty
                                     sx={{
-                                        borderRadius: "4px",
+                                        borderRadius: "10px",
                                     }}
                                 >
                                     <MenuItem value="" disabled>
@@ -192,7 +192,7 @@ const StudentRegistrationForm = () => {
                             </FormControl>
                         </Box>
 
-                        <Box sx={{ flex: "1 1 45%", minWidth: "250px" }}>
+                        <Box sx={{ width: "49%" }}>
                             <Typography sx={{ mb: 0.5 }}>Category</Typography>
                             <FormControl fullWidth size="small">
                                 <Select
@@ -201,7 +201,8 @@ const StudentRegistrationForm = () => {
                                     onChange={handleInputChange}
                                     displayEmpty
                                     sx={{
-                                        borderRadius: "4px",
+                                        borderRadius: "8px",
+                                        height: "48px",
                                     }}
                                 >
                                     <MenuItem value="" disabled>
@@ -225,14 +226,14 @@ const StudentRegistrationForm = () => {
                             color: "white",
                             p: 1,
                             fontWeight: "bold",
-                            borderRadius: "4px",
+                            borderRadius: "10px",
                             mb: 2,
                         }}
                     >
                         FAMILY DETAIL
                     </Typography>
 
-                    <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2 }}>
+                    <Box sx={{ display: "flex", flexWrap: "wrap", gap: 3 }}>
                         <Box sx={{ flex: "1 1 45%", minWidth: "250px" }}>
                             <Typography sx={{ mb: 0.5 }}>Father Name</Typography>
                             <TextField
@@ -245,7 +246,7 @@ const StudentRegistrationForm = () => {
                                 size="small"
                                 sx={{
                                     "& .MuiOutlinedInput-root": {
-                                        borderRadius: "4px",
+                                        borderRadius: "10px",
                                     },
                                 }}
                             />
@@ -263,7 +264,7 @@ const StudentRegistrationForm = () => {
                                 size="small"
                                 sx={{
                                     "& .MuiOutlinedInput-root": {
-                                        borderRadius: "4px",
+                                        borderRadius: "10px",
                                     },
                                 }}
                             />
@@ -281,7 +282,7 @@ const StudentRegistrationForm = () => {
                                 size="small"
                                 sx={{
                                     "& .MuiOutlinedInput-root": {
-                                        borderRadius: "4px",
+                                        borderRadius: "10px",
                                     },
                                 }}
                             />
@@ -299,7 +300,7 @@ const StudentRegistrationForm = () => {
                                 size="small"
                                 sx={{
                                     "& .MuiOutlinedInput-root": {
-                                        borderRadius: "4px",
+                                        borderRadius: "10px",
                                     },
                                 }}
                             />
@@ -315,14 +316,14 @@ const StudentRegistrationForm = () => {
                             color: "white",
                             p: 1,
                             fontWeight: "bold",
-                            borderRadius: "4px",
+                            borderRadius: "10px",
                             mb: 2,
                         }}
                     >
                         ADDRESS
                     </Typography>
 
-                    <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2 }}>
+                    <Box sx={{ display: "flex", flexWrap: "wrap", gap: 3 }}>
                         <Box sx={{ flex: "1 1 45%", minWidth: "250px" }}>
                             <Typography sx={{ mb: 0.5 }}>Address</Typography>
                             <TextField
@@ -335,7 +336,7 @@ const StudentRegistrationForm = () => {
                                 size="small"
                                 sx={{
                                     "& .MuiOutlinedInput-root": {
-                                        borderRadius: "4px",
+                                        borderRadius: "10px",
                                     },
                                 }}
                             />
@@ -353,7 +354,7 @@ const StudentRegistrationForm = () => {
                                 size="small"
                                 sx={{
                                     "& .MuiOutlinedInput-root": {
-                                        borderRadius: "4px",
+                                        borderRadius: "10px",
                                     },
                                 }}
                             />
@@ -371,7 +372,7 @@ const StudentRegistrationForm = () => {
                                 size="small"
                                 sx={{
                                     "& .MuiOutlinedInput-root": {
-                                        borderRadius: "4px",
+                                        borderRadius: "10px",
                                     },
                                 }}
                             />
@@ -389,7 +390,7 @@ const StudentRegistrationForm = () => {
                                 size="small"
                                 sx={{
                                     "& .MuiOutlinedInput-root": {
-                                        borderRadius: "4px",
+                                        borderRadius: "10px",
                                     },
                                 }}
                             />
@@ -397,7 +398,7 @@ const StudentRegistrationForm = () => {
                     </Box>
                 </Box>
 
-                {/* UPLOAD DATA Section */}
+                {/* UPLOAD DATA Section - Updated to match the image */}
                 <Box sx={{ mb: 3 }}>
                     <Typography
                         sx={{
@@ -405,14 +406,15 @@ const StudentRegistrationForm = () => {
                             color: "white",
                             p: 1,
                             fontWeight: "bold",
-                            borderRadius: "4px",
+                            borderRadius: "10px",
                             mb: 2,
                         }}
                     >
                         UPLOAD DATA
                     </Typography>
 
-                    <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2 }}>
+                    <Box sx={{ display: "flex", flexWrap: "wrap", gap: 3 }}>
+                        {/* Upload Result */}
                         <Box sx={{ flex: "1 1 45%", minWidth: "250px" }}>
                             <Typography sx={{ mb: 0.5 }}>Upload Result</Typography>
                             <TextField
@@ -430,13 +432,15 @@ const StudentRegistrationForm = () => {
                                 sx={{
                                     cursor: "pointer",
                                     "& .MuiOutlinedInput-root": {
-                                        borderRadius: "4px",
+                                        borderRadius: "10px",
+                                        height: "48px",
                                     },
                                 }}
                             />
                             <input id="result-upload" type="file" hidden onChange={(e) => handleFileChange(e, "result")} />
                         </Box>
 
+                        {/* Upload CC */}
                         <Box sx={{ flex: "1 1 45%", minWidth: "250px" }}>
                             <Typography sx={{ mb: 0.5 }}>Upload CC</Typography>
                             <TextField
@@ -454,36 +458,39 @@ const StudentRegistrationForm = () => {
                                 sx={{
                                     cursor: "pointer",
                                     "& .MuiOutlinedInput-root": {
-                                        borderRadius: "4px",
+                                        borderRadius: "10px",
+                                        height: "48px",
                                     },
                                 }}
                             />
                             <input id="cc-upload" type="file" hidden onChange={(e) => handleFileChange(e, "cc")} />
                         </Box>
+                    </Box>
 
-                        <Box sx={{ flex: "1 1 45%", minWidth: "250px" }}>
-                            <Typography sx={{ mb: 0.5 }}>Upload TC</Typography>
-                            <TextField
-                                fullWidth
-                                name="tc"
-                                placeholder="Upload TC"
-                                value={formData.tc ? formData.tc.name : ""}
-                                InputProps={{
-                                    readOnly: true,
-                                    endAdornment: <FileDownloadIcon sx={{ color: "gray" }} />,
-                                }}
-                                variant="outlined"
-                                size="small"
-                                onClick={() => document.getElementById("tc-upload").click()}
-                                sx={{
-                                    cursor: "pointer",
-                                    "& .MuiOutlinedInput-root": {
-                                        borderRadius: "4px",
-                                    },
-                                }}
-                            />
-                            <input id="tc-upload" type="file" hidden onChange={(e) => handleFileChange(e, "tc")} />
-                        </Box>
+                    {/* Upload TC - On a new row */}
+                    <Box sx={{ mt: 3, maxWidth: "49%" }}>
+                        <Typography sx={{ mb: 0.5 }}>Upload TC</Typography>
+                        <TextField
+                            fullWidth
+                            name="tc"
+                            placeholder="Upload TC"
+                            value={formData.tc ? formData.tc.name : ""}
+                            InputProps={{
+                                readOnly: true,
+                                endAdornment: <FileDownloadIcon sx={{ color: "gray" }} />,
+                            }}
+                            variant="outlined"
+                            size="small"
+                            onClick={() => document.getElementById("tc-upload").click()}
+                            sx={{
+                                cursor: "pointer",
+                                "& .MuiOutlinedInput-root": {
+                                    borderRadius: "10px",
+                                    height: "48px",
+                                },
+                            }}
+                        />
+                        <input id="tc-upload" type="file" hidden onChange={(e) => handleFileChange(e, "tc")} />
                     </Box>
                 </Box>
 
@@ -497,7 +504,7 @@ const StudentRegistrationForm = () => {
                             "&:hover": { bgcolor: "#0077cc" },
                             px: 4,
                             py: 1,
-                            borderRadius: "4px",
+                            borderRadius: "10px",
                             width: "150px",
                         }}
                     >
