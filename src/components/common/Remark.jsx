@@ -57,7 +57,7 @@ const RemarkForm = () => {
     }
 
     return (
-        <Container maxWidth="" sx={{ mt: 4 }}>
+        <Container maxWidth="" sx={{ }}>
             <Box component="form" onSubmit={handleSubmit} sx={{ mt: 2 }}>
                 <Box sx={{ display: "flex", flexDirection: { xs: "column", sm: "row" }, gap: 3, mb: 3 }}>
                     <Box sx={{ flex: 1 }}>
