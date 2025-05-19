@@ -35,10 +35,10 @@ const Homework = () => {
             "&:hover": {
               bgcolor: "#0277bd",
             },
-            borderRadius: 1,
+            borderRadius: '7px',
             textTransform: "none",
-            px: 2,
-            py: 1,
+            px: 6,
+            py: 2,
           }}
         >
           New homework
@@ -53,7 +53,7 @@ const Homework = () => {
             elevation={0}
             sx={{
               p: 2,
-              bgcolor: "#f5f5f5",
+              bgcolor: "#D9D9D9",
               borderRadius: 1,
               borderTop: "5px solid #2196f3",
               borderBottom: "1px solid #2196f3",
