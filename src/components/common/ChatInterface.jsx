@@ -27,7 +27,7 @@ const ChatInterface = () => {
   }
 
   return (
-    <Box sx={{ display: "flex", flexDirection: "column", height: "100vh", maxWidth: "100%", mx: "auto" }}>
+    <Box sx={{ display: "flex", flexDirection: "column", height: "89vh", maxWidth: "100%", mx: "auto" }}>
       {/* Chat messages area */}
       <Box sx={{ flexGrow: 1, mt: 2, overflow: "auto", display: "flex", flexDirection: "column", gap: 2 }}>
         {messages.map((msg) => (
