@@ -19,6 +19,7 @@ import {
 import CreditCardIcon from "@mui/icons-material/CreditCard";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
+import ProdileImage from "../../assets/images/profileImage.png"; // Replace with actual image path
 
 export default function PersonalProfile() {
     const [formData, setFormData] = useState({
@@ -88,7 +89,7 @@ export default function PersonalProfile() {
     };
 
     return (
-        <Container maxWidth="xl" sx={{ py: 4, height: "100%" }}>
+        <Container maxWidth="xxl" sx={{ py: 4, height: "100%" }}>
             <Card sx={{ p: { xs: 2, sm: 3 }, boxShadow: "0 4px 20px rgba(0,0,0,0.0)", height: "100%" }}>
                 <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: 4 }}>
                     <Typography variant="h6" component="h1" fontWeight="bold">
@@ -125,6 +126,8 @@ export default function PersonalProfile() {
                             }}
                         >
                             <Avatar
+                                src={ProdileImage} // Replace with actual image path
+                                alt="Profile"
                                 sx={{
                                     width: { xs: 100, sm: 120, md: 150 },
                                     height: { xs: 100, sm: 120, md: 150 },
