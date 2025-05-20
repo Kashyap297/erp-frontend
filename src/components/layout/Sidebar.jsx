@@ -194,7 +194,7 @@ const Sidebar = ({ mobileOpen, handleDrawerToggle, isMobile }) => {
                 </List>
                 <Box sx={{ flexGrow: 1 }} />
                 <List sx={{ mt: 'auto' }}>
-                    <StyledNavLink to="/logout" onClick={isMobile ? handleDrawerToggle : undefined}>
+                    <StyledNavLink to="/login" onClick={isMobile ? handleDrawerToggle : undefined}>
                         <ListItem>
                             <ListItemIcon sx={{ color: 'white' }}><Logout /></ListItemIcon>
                             <ListItemText primary="Logout" />
