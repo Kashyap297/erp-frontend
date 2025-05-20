@@ -478,7 +478,7 @@ const TimeTable = () => {
       {isMobile ? (
         renderMobileView()
       ) : isTablet ? (
-        renderTabletView()
+        renderMobileView()
       ) : (
         renderDesktopView()
       )}
