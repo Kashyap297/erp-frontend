@@ -6,11 +6,14 @@ import FinanceRouts from './FinanceRouts';
 import PrincipalRouts from './PrincipalRouts';
 import TeacherRoutes from './TeacherRoutes';
 import AppLayout from '../components/layout/AppLayout';
+import PersonalProfile from '../components/common/PersonalProfile';
 
 const AppRoutes = () => {
     return (
         <Routes>
             <Route path="/*" element={<AppLayout />}>
+
+                <Route path="profile" element={<PersonalProfile />} />
                 <Route path="admission/*" element={<AdmissionRoutes />} />
                 <Route path="coordinator/*" element={<CoordinatorRoutes />} />
                 <Route path="finance/*" element={<FinanceRouts />} />

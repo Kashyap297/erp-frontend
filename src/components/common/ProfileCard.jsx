@@ -4,6 +4,7 @@ import { Box, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { useEffect, useRef } from "react";
 import * as d3 from "d3";
+import profileImage from '../../assets/images/ProfileImage.png'; // adjust path as needed
 
 const EditLink = styled(Typography)({
   color: "#0288d1",
@@ -39,7 +40,7 @@ const StyledLinearProgress = styled(Box)(({ theme }) => ({
 // 3D progress bar component - Now always blue
 const ProgressBar3D = ({ value }) => {
   const blueColor = "#0288d1"; // Consistent blue color
-  
+
   return (
     <StyledLinearProgress>
       <Box
@@ -86,24 +87,24 @@ const ProgressBar3D = ({ value }) => {
 // 3D Circular Progress Component using D3 - Shadow removed
 const CircularProgress3D = ({ value, size = 100 }) => {
   const svgRef = useRef(null);
-  
+
   useEffect(() => {
     if (!svgRef.current) return;
-    
+
     const svg = d3.select(svgRef.current);
     svg.selectAll("*").remove();
-    
+
     const width = size;
     const height = size;
     const radius = Math.min(width, height) / 2;
     const innerRadius = radius * 0.7;
     const thickness = radius - innerRadius;
-    
+
     // Create a group element
     const g = svg
       .append("g")
       .attr("transform", `translate(${width / 2},${height / 2})`);
-    
+
     // Define gradient for 3D effect
     const gradient = svg
       .append("defs")
@@ -113,27 +114,27 @@ const CircularProgress3D = ({ value, size = 100 }) => {
       .attr("y1", "0%")
       .attr("x2", "0%")
       .attr("y2", "100%");
-    
+
     gradient
       .append("stop")
       .attr("offset", "0%")
       .attr("stop-color", "#29b6f6");
-    
+
     gradient
       .append("stop")
       .attr("offset", "100%")
       .attr("stop-color", "#0288d1");
-    
+
     // Background circle - No shadow
     g.append("circle")
       .attr("r", radius)
       .attr("fill", "#e0e0e0");
-    
+
     // Inner circle - No shadow
     g.append("circle")
       .attr("r", innerRadius)
       .attr("fill", "white");
-    
+
     // Arc generator
     const arc = d3
       .arc()
@@ -141,12 +142,12 @@ const CircularProgress3D = ({ value, size = 100 }) => {
       .outerRadius(radius)
       .startAngle(0)
       .endAngle((value / 100) * (2 * Math.PI));
-    
+
     // Add the progress arc - No shadow
     g.append("path")
       .attr("d", arc)
       .attr("fill", "url(#circleGradient)");
-    
+
     // Add highlight for 3D effect
     const highlightArc = d3
       .arc()
@@ -154,11 +155,11 @@ const CircularProgress3D = ({ value, size = 100 }) => {
       .outerRadius(innerRadius + thickness * 0.8)
       .startAngle(0)
       .endAngle((value / 100) * (2 * Math.PI));
-    
+
     g.append("path")
       .attr("d", highlightArc)
       .attr("fill", "rgba(255, 255, 255, 0.3)");
-    
+
     // Add text in the center
     g.append("text")
       .attr("text-anchor", "middle")
@@ -166,9 +167,9 @@ const CircularProgress3D = ({ value, size = 100 }) => {
       .attr("font-size", radius * 0.25) // Responsive font size
       .attr("font-weight", "bold")
       .text(`${value}%`);
-    
+
   }, [value, size]);
-  
+
   return (
     <svg ref={svgRef} width={size} height={size}></svg>
   );
@@ -203,7 +204,7 @@ export default function ProfileCard({ data }) {
         {/* Profile Image */}
         <Box
           component="img"
-          src="/teacher-profile.png"
+          src={profileImage}
           alt="Teacher Profile"
           sx={{
             width: { xs: 100, sm: 120, md: 150 },
@@ -263,9 +264,9 @@ export default function ProfileCard({ data }) {
           }}
         >
           {/* Responsive size for the circular chart */}
-          <CircularProgress3D 
-            value={data.attendance} 
-            size={useRef(window?.innerWidth < 600 ? 100 : 120).current} 
+          <CircularProgress3D
+            value={data.attendance}
+            size={useRef(window?.innerWidth < 600 ? 100 : 120).current}
           />
         </Box>
         <Typography variant="body2" sx={{ mt: 1, fontWeight: 'medium' }}>
@@ -291,10 +292,10 @@ export default function ProfileCard({ data }) {
             gap: { xs: 0.5, sm: 2 },
           }}
         >
-          <Typography 
-            variant="body2" 
-            sx={{ 
-              minWidth: { xs: "100%", sm: 120 }, 
+          <Typography
+            variant="body2"
+            sx={{
+              minWidth: { xs: "100%", sm: 120 },
               fontWeight: 'medium',
               fontSize: { xs: '14px', sm: '16px' },
               mb: { xs: 0.5, sm: 0 }
@@ -316,10 +317,10 @@ export default function ProfileCard({ data }) {
             gap: { xs: 0.5, sm: 2 },
           }}
         >
-          <Typography 
-            variant="body2" 
-            sx={{ 
-              minWidth: { xs: "100%", sm: 120 }, 
+          <Typography
+            variant="body2"
+            sx={{
+              minWidth: { xs: "100%", sm: 120 },
               fontWeight: 'medium',
               fontSize: { xs: '14px', sm: '16px' },
               mb: { xs: 0.5, sm: 0 }
@@ -340,10 +341,10 @@ export default function ProfileCard({ data }) {
             gap: { xs: 0.5, sm: 2 },
           }}
         >
-          <Typography 
-            variant="body2" 
-            sx={{ 
-              minWidth: { xs: "100%", sm: 120 }, 
+          <Typography
+            variant="body2"
+            sx={{
+              minWidth: { xs: "100%", sm: 120 },
               fontWeight: 'medium',
               fontSize: { xs: '14px', sm: '16px' },
               mb: { xs: 0.5, sm: 0 }
