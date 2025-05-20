@@ -152,7 +152,7 @@ const TeacherDirectory = () => {
     })
 
     return (
-        <Container maxWidth="xl" sx={{ py: { xs: 2, sm: 3, md: 0 } }}>
+        <Container maxWidth="xxl" sx={{ py: { xs: 2, sm: 3, md: 0 } }}>
             <Box sx={{ width: "100%" }}>
                 {/* Search and Filter Row */}
                 <Grid container spacing={2} sx={{ mb: { xs: 2, sm: 3 } }}>
