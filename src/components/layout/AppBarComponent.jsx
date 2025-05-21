@@ -1,7 +1,8 @@
 import React from 'react';
-import { AppBar, Toolbar, Typography, IconButton, Badge, Box, Menu } from '@mui/material';
+import { AppBar, Toolbar, Typography, IconButton, Badge, Box} from '@mui/material';
 import { NotificationsNone } from '@mui/icons-material';
 import { useLocation } from 'react-router-dom';
+import MenuIcon from '@mui/icons-material/Menu';
 
 // Create a comprehensive title map from all role menus
 const createTitleMap = () => {
@@ -118,9 +119,15 @@ const AppBarComponent = ({ handleDrawerToggle, isMobile }) => {
                             aria-label="open drawer"
                             edge="start"
                             onClick={handleDrawerToggle}
-                            sx={{ mr: 2 }}
+                            sx={{
+                                mr: 2,
+                                // backgroundColor: 'white',
+                                // '&:hover': {
+                                //     backgroundColor: 'darkgrey'
+                                // }
+                            }}
                         >
-                            <Menu sx={{ color: 'black' }} />
+                            <MenuIcon sx={{ color: 'black' }} /> {/* Using MenuIcon component */}
                         </IconButton>
                     )}
                     <Typography variant="h6" noWrap>
