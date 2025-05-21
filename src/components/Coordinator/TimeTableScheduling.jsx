@@ -213,21 +213,16 @@ const TimeTableScheduling = () => {
               borderRadius: "4px",
               padding: isMobileView ? "6px" : "8px",
               width: "100%",
-              position: "relative", // Added to ensure proper stacking context
-              zIndex: 1, // Added to ensure dropdown appears above other elements
+              position: "relative",
+              zIndex: 1,
             }}
           >
             <Box sx={{ display: "flex", width: "100%", mb: isMobileView ? 0.5 : 1 }}>
               <FormControl fullWidth size="small" sx={{ zIndex: 2 }}>
-                {" "}
-                {/* Increased z-index */}
                 <Select
                   value={cellData.subject || "English"}
                   onChange={(e) => {
-                    // Direct function call instead of using the handler
                     const newSubject = e.target.value
-                    console.log(`Direct select change: ${newSubject} at ${timeSlot} on ${day}`)
-
                     const updatedData = { ...timetableData }
                     const currentCell = updatedData[timeSlot][day]
 
@@ -241,7 +236,7 @@ const TimeTableScheduling = () => {
                   MenuProps={{
                     PaperProps: {
                       sx: {
-                        zIndex: 9999, // Very high z-index to ensure it's on top
+                        zIndex: 9999,
                       },
                     },
                   }}
@@ -250,17 +245,8 @@ const TimeTableScheduling = () => {
                     ".MuiOutlinedInput-notchedOutline": { border: "none" },
                     fontSize: isMobileView ? "12px" : "14px",
                     height: isMobileView ? "24px" : "30px",
-                    zIndex: 2, // Added to ensure dropdown appears above other elements
+                    zIndex: 2,
                   }}
-                  startAdornment={
-                    !isMobileView && (
-                      <InputAdornment position="start">
-                        <Typography variant="caption" sx={{ color: "#666", fontSize: "12px" }}>
-                          Select subject
-                        </Typography>
-                      </InputAdornment>
-                    )
-                  }
                   IconComponent={KeyboardArrowDownIcon}
                 >
                   <MenuItem value="English">English</MenuItem>
@@ -277,10 +263,7 @@ const TimeTableScheduling = () => {
                 placeholder="Class"
                 value={cellData.class || "4B"}
                 onChange={(e) => {
-                  // Direct function call instead of using the handler
                   const newClass = e.target.value
-                  console.log(`Direct class change: ${newClass} at ${timeSlot} on ${day}`)
-
                   const updatedData = { ...timetableData }
                   const currentCell = updatedData[timeSlot][day]
 
@@ -745,7 +728,7 @@ const TimeTableScheduling = () => {
       </Typography>
 
       {/* Responsive Timetable Views */}
-      {isMobile ? renderMobileView() : isTablet ? renderTabletView() : renderDesktopView()}
+      {isMobile ? renderMobileView() : isTablet ? renderMobileView() : renderDesktopView()}
     </Box>
   )
 }
