@@ -681,35 +681,30 @@ const TimeTableScheduling = () => {
           <Typography variant="body1" sx={{ mb: 1, fontWeight: 400, fontSize: { xs: "0.875rem", sm: "1rem" } }}>
             Select Date
           </Typography>
-          <TextField
-            fullWidth
-            placeholder="Select Date"
-            value={selectedDate}
-            onChange={(e) => setSelectedDate(e.target.value)}
-            size={isMobile ? "small" : "medium"}
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="end">
-                  <CalendarTodayIcon sx={{ fontSize: isMobile ? "1.25rem" : "1.5rem" }} />
-                </InputAdornment>
-              ),
-            }}
-            sx={{
-              backgroundColor: "#e0e0e0",
-              borderRadius: "8px",
-              "& .MuiOutlinedInput-root": {
-                "& fieldset": {
-                  borderColor: "transparent",
-                },
-                "&:hover fieldset": {
-                  borderColor: "transparent",
-                },
-                "&.Mui-focused fieldset": {
-                  borderColor: "transparent",
-                },
-              },
-            }}
-          />
+          <Box sx={{
+            backgroundColor: "#e0e0e0",
+            borderRadius: "8px",
+            position: 'relative',
+            width: '100%'
+          }}>
+            <input
+              type="date"
+              value={selectedDate || ''}
+              onChange={(e) => setSelectedDate(e.target.value)}
+              style={{
+                width: '100%',
+                height: isMobile ? '40px' : '56px',
+                padding: '0 14px',
+                backgroundColor: 'transparent',
+                border: 'none',
+                outline: 'none',
+                fontSize: isMobile ? '0.875rem' : '1rem',
+                color: theme.palette.text.primary,
+                appearance: 'none',
+                paddingRight: '15px' // Make space for the calendar icon
+              }}
+            />
+          </Box>
         </Grid>
       </Grid>
 
