@@ -12,6 +12,8 @@ import PaySlips from '../components/Teacher/PaySlips';
 import StudentList from '../components/Principal/StudentList';
 import UpadteAttendance from '../components/Coordinator/UpadteAttendance';
 import StudentAttendanceTable from '../components/Coordinator/StudentAttendanceTable';
+import FeesHistoryDetails from '../components/Coordinator/FeesHistoryDetails';
+import AssignStudent from '../components/Coordinator/AssignStudent';
 
 
 
@@ -30,7 +32,9 @@ const CoordinatorRoutes = () => {
 
 
 
-      
+
+      <Route path="assign-student" element={<AssignStudent />} /> 
+      <Route path="fees-history" element={<FeesHistoryDetails />} /> 
       <Route path="update-attendance" element={<UpadteAttendance />} />
       <Route path="update-attendance/update/:studentId" element={<StudentAttendanceTable />} />
       <Route path="remark" element={<RemarkForm />} />
