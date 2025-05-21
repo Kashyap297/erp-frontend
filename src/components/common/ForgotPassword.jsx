@@ -1,23 +1,45 @@
-import { useState } from "react"
-import { Box, Button, Card, Container, TextField, Typography } from "@mui/material"
-import SchoolIcon from "@mui/icons-material/School"
+import { useState } from "react";
+import {
+    Box,
+    Button,
+    Card,
+    Container,
+    TextField,
+    Typography,
+    Link,
+    useMediaQuery,
+    useTheme,
+} from "@mui/material";
+import SchoolIcon from "@mui/icons-material/School";
 
 export default function ForgotPassword() {
-    const [username, setUsername] = useState("")
-    const [otp, setOtp] = useState("")
-    const [newPassword, setNewPassword] = useState("")
+    const [username, setUsername] = useState("");
+    const [otp, setOtp] = useState("");
+    const [newPassword, setNewPassword] = useState("");
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
     const handleSubmit = (e) => {
-        e.preventDefault()
-        console.log("Password reset attempt with:", { username, otp, newPassword })
+        e.preventDefault();
+        console.log("Password reset attempt with:", { username, otp, newPassword });
         // Add your password reset logic here
-    }
+    };
 
     return (
-        <Container maxWidth="md" sx={{ height: "100vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <Container
+            maxWidth="md"
+            sx={{
+                height: isMobile ? "100%" : "100vh",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                p: isMobile ? 2 : 3,
+            }}
+        >
             <Card
                 sx={{
                     display: "flex",
+                    flexDirection: { xs: "column", md: "row" },
                     width: "100%",
                     overflow: "hidden",
                     borderRadius: 2,
@@ -27,14 +49,16 @@ export default function ForgotPassword() {
                 {/* Left side - Logo and Brand */}
                 <Box
                     sx={{
-                        width: "40%",
-                        display: { xs: "none", md: "flex" },
+                        width: { xs: "100%", md: "40%" },
+                        minHeight: { xs: "180px", sm: "220px", md: "auto" },
+                        display: "flex",
                         flexDirection: "column",
                         alignItems: "center",
                         justifyContent: "center",
                         background: "linear-gradient(135deg, #1976d2 0%, #2C9EF4 100%)",
                         position: "relative",
                         overflow: "hidden",
+                        p: 4,
                     }}
                 >
                     {/* Wavy pattern overlay */}
@@ -51,7 +75,18 @@ export default function ForgotPassword() {
                         }}
                     />
 
-                    <Box sx={{ position: "relative", textAlign: "center", color: "white" }}>
+                    <Box
+                        sx={{
+                            position: "relative",
+                            textAlign: "center",
+                            color: "white",
+                            zIndex: 1,
+                            width: "100%",
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center",
+                        }}
+                    >
                         <Box
                             sx={{
                                 backgroundColor: "rgba(255, 255, 255, 0.2)",
@@ -69,13 +104,30 @@ export default function ForgotPassword() {
                         <Typography variant="h5" component="h1" fontWeight="bold">
                             Educational ERP
                         </Typography>
+                        <Typography variant="body2" sx={{ mt: 1, opacity: 0.9 }}>
+                            Comprehensive School Management
+                        </Typography>
                     </Box>
                 </Box>
 
                 {/* Right side - Forgot Password Form */}
-                <Box sx={{ width: { xs: "100%", md: "60%" }, p: 4 }}>
-                    <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }}>
-                        <Typography variant="h4" component="h1" fontWeight="bold" gutterBottom>
+                <Box
+                    sx={{
+                        width: { xs: "100%", md: "60%" },
+                        p: { xs: 3, sm: 4, md: 5 },
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "center",
+                    }}
+                >
+                    <Box component="form" onSubmit={handleSubmit}>
+                        <Typography
+                            variant="h4"
+                            component="h1"
+                            fontWeight="bold"
+                            gutterBottom
+                            sx={{ fontSize: { xs: "1.75rem", sm: "2rem" } }}
+                        >
                             Forgot Password
                         </Typography>
                         <Typography variant="body1" color="text.secondary" paragraph>
@@ -93,6 +145,7 @@ export default function ForgotPassword() {
                             value={username}
                             onChange={(e) => setUsername(e.target.value)}
                             sx={{ mb: 2 }}
+                            size={isMobile ? "small" : "medium"}
                         />
 
                         <TextField
@@ -106,6 +159,7 @@ export default function ForgotPassword() {
                             value={otp}
                             onChange={(e) => setOtp(e.target.value)}
                             sx={{ mb: 2 }}
+                            size={isMobile ? "small" : "medium"}
                             inputProps={{
                                 maxLength: 6,
                             }}
@@ -122,6 +176,7 @@ export default function ForgotPassword() {
                             value={newPassword}
                             onChange={(e) => setNewPassword(e.target.value)}
                             sx={{ mb: 3 }}
+                            size={isMobile ? "small" : "medium"}
                         />
 
                         <Button
@@ -129,7 +184,7 @@ export default function ForgotPassword() {
                             fullWidth
                             variant="contained"
                             sx={{
-                                py: 1.5,
+                                py: isMobile ? 1 : 1.5,
                                 borderRadius: 1,
                                 textTransform: "none",
                                 fontSize: "1rem",
@@ -141,9 +196,18 @@ export default function ForgotPassword() {
                         >
                             Update password
                         </Button>
+
+                        <Box sx={{ textAlign: "center", mt: 2 }}>
+                            <Typography variant="body2" color="text.secondary">
+                                Remember your password?{" "}
+                                <Link href="/login" color="#2C9EF4" underline="hover">
+                                    Sign in
+                                </Link>
+                            </Typography>
+                        </Box>
                     </Box>
                 </Box>
             </Card>
         </Container>
-    )
+    );
 }

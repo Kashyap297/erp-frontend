@@ -218,7 +218,6 @@ const TimeTable = () => {
                 gridTemplateColumns: `repeat(${timeSlots.length}, minmax(150px, 1fr))`,
                 width: 'max-content',
                 minWidth: 0,
-                width: 'max-content',
                 borderRadius: '24px',
                 overflow: 'hidden',
                 border: '1px solid #e0e0e0',

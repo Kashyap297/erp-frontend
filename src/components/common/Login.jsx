@@ -80,11 +80,12 @@ export default function Login() {
     <Container
       maxWidth="md"
       sx={{
-        height: "100vh",
+        height: isMobile ? "100%" : "100vh",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
         p: isMobile ? 2 : 3,
+
       }}
     >
       <Card
@@ -231,9 +232,9 @@ export default function Login() {
               <Grid container spacing={2}>
                 {/* First column */}
                 <Grid item xs={12} md={6}>
-                  <Grid container spacing={2}>
-                    {roles.slice(0, 3).map((role) => (
-                      <Grid item xs={12} key={role.id} sx={{ display: "flex" }}>
+                  <Grid container spacing={2} sx={{ justifyContent: "space-evenly" }}>
+                    {roles.slice(0, 6).map((role) => (
+                      <Grid item xs={12} key={role.id} sx={{ display: "flex", width: "25%" }}>
                         <RoleCard
                           selected={selectedRole === role.id}
                           onClick={() => handleRoleSelect(role.id)}
@@ -290,7 +291,7 @@ export default function Login() {
                 </Grid>
 
                 {/* Second column */}
-                <Grid item xs={12} md={6}>
+                {/* <Grid item xs={12} md={6}>
                   <Grid container spacing={2}>
                     {roles.slice(3).map((role) => (
                       <Grid item xs={12} key={role.id} sx={{ display: "flex" }}>
@@ -347,7 +348,7 @@ export default function Login() {
                       </Grid>
                     ))}
                   </Grid>
-                </Grid>
+                </Grid> */}
               </Grid>
             </Box>
 
