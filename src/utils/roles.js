@@ -8,6 +8,6 @@ export const roles = {
 
 // Simulate logged-in user
 export const getCurrentUserRole = () => {
-    return 'admission'; // Replace with actual role logic (e.g., from auth context)
+    return 'coordinator'; // Replace with actual role logic (e.g., from auth context)
 };
   
