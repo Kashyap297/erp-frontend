@@ -57,17 +57,6 @@
 
     return (
       <Box sx={{ width: "100%", mt: 4, px: 2 }}>
-        <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: 2 }}>
-          <Typography variant="h5" component="h1" fontWeight="regular">
-            Attendance
-          </Typography>
-          <IconButton aria-label="notifications">
-            <NotificationsIcon />
-          </IconButton>
-        </Box>
-
-        <Divider sx={{ mb: 3 }} />
-
         <Box sx={{ display: "flex", justifyContent: "flex-end", mb: 3 }}>
           <FormControl sx={{ minWidth: 150 }}>
             <Select
