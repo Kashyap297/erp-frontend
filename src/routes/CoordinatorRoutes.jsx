@@ -14,7 +14,7 @@ import UpadteAttendance from '../components/Coordinator/UpadteAttendance';
 import StudentAttendanceTable from '../components/Coordinator/StudentAttendanceTable';
 import FeesHistoryDetails from '../components/Coordinator/FeesHistoryDetails';
 import AssignStudent from '../components/Coordinator/AssignStudent';
-
+import ViewAttendance from '../pages/coordinator/ViewAttendance';
 
 
 const CoordinatorRoutes = () => {
@@ -39,6 +39,8 @@ const CoordinatorRoutes = () => {
       <Route path="update-attendance/update/:studentId" element={<StudentAttendanceTable />} />
       <Route path="remark" element={<RemarkForm />} />
       <Route path="support" element={<ChatInterface />} />
+      <Route path="view-attendance" element={<ViewAttendance />} />
+      
     </Routes>
   )
 }
